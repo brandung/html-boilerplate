@@ -1,0 +1,15 @@
+/**
+ * brandung SCSS boilerplate for old IE v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2014-03-14
+ * MIT License (MIT)
+ */
+
+$old-ie: true;
+$fix-mqs: 61.875em; // => desktop: min-width 990px
+@import 'main';
+
+

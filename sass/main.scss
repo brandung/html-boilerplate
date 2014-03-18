@@ -1,0 +1,193 @@
+/**
+ * brandung SCSS boilerplate v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2014-03-14
+ * MIT License (MIT)
+ */
+
+
+/**
+ *  core variables and mixins
+ *  - modify this for custom colors, font-sizes, etc
+ */
+@import "partials/variables";
+@import "partials/mixins";
+
+
+/**
+ * normalize
+ * https://github.com/necolas/normalize.css
+ */
+@import "vendor/normalize";
+
+
+/**
+ * h5bp main.css
+ * https://github.com/h5bp/html5-boilerplate
+ */
+@import "vendor/h5bp";
+
+
+/**
+ * gridset app
+ * https://gridsetapp.com/
+ */
+@import "vendor/gridset";
+@import "vendor/sass-ie";
+
+
+/**
+ * vendor utilities
+ * - remove comment when mixin is needed
+ */
+// @import "vendor/retina-sprites";
+// @import "vendor/retina-background-image";
+
+
+/**
+ * layout
+ * - brandung layout files
+ * - here you can add new files if needed
+ */
+@import "partials/layout";
+@import "partials/typo";
+@import "partials/helpers";
+@import "partials/buttons";
+@import "partials/forms";
+@import "partials/sprite-icons";
+
+
+/**
+ * modules placeholder
+ * - import all modules files
+ *
+ * - for grunt-build-process:
+ * - package files by download builder
+ * - add files by appendAssets task in project builder (bra-pd)
+ */
+
+// --- start|bra-pb: scss ---
+
+// --- end|bra-pb: scss ---
+
+/* ==========================================================================
+  Content Blocks
+  ========================================================================== */
+
+/* noscript */
+noscript {
+	color: $white;
+	margin: 0.2em 0;
+	background: $ciColor;
+	padding: 0.2em 0;
+	text-align: center;
+	p {
+		margin: 0 auto;
+		max-width: $wrapperMaxWidth;
+	}
+}
+
+/* header */
+header {
+	&:after {
+		@extend .clearfix;
+	}
+}
+
+/* nav */
+nav {
+	&:after {
+		@extend .clearfix;
+	}
+}
+
+/* container */
+#main {
+	&:after {
+		@extend .clearfix;
+	}
+}
+
+/* footer */
+footer {
+	&:after {
+		@extend .clearfix;
+	}
+}
+
+/* ==========================================================================
+  Content Elements
+  ========================================================================== */
+
+/* ==========================================================================
+  IE Rules
+  ========================================================================== */
+
+/* IE < 9 */
+
+/* IE < 8 */
+.lt-ie8 header,
+.lt-ie8 nav,
+.lt-ie8 #main,
+.lt-ie8 footer {
+	display: inline-block;
+}
+
+/* ==========================================================================
+   media queries
+   ========================================================================== */
+
+/* Desktop */
+@media only screen and (min-width: 769px) {
+	body:after {
+		content: 'desktop';
+		position: absolute;
+		top: -100em;
+		left: -100em;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+	}
+}
+
+/* Tablet (portrait) */
+@media only screen and (max-width: 768px) {
+	body:after {
+		content: 'tablet';
+		position: absolute;
+		top: -100em;
+		left: -100em;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+	}
+}
+
+/* Smartphones (landscape)  */
+@media only screen and (max-width: 480px) {
+	body:after {
+		content: 'smartphone';
+		position: absolute;
+		top: -100em;
+		left: -100em;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+	}
+}
+
+/* Smartphones (portrait) */
+@media only screen and (max-width: 320px) {
+	body:after {
+		content: 'smartphone';
+		position: absolute;
+		top: -100em;
+		left: -100em;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+	}
+}

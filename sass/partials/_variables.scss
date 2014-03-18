@@ -1,0 +1,40 @@
+/**
+ * brandung variables.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2014-03-14
+ * MIT License (MIT)
+ */
+
+
+/* Body font size */
+$bodyFontSizePX: 16; 						// 16px
+$bodyFontSize: $bodyFontSizePX/16*100; 		// in percent
+
+/* Container width */
+$wrapperMaxWidth: 1280;	// in px
+$wrapperMinWidth: 320;	// in px
+$contentWidth: 960;		// in px
+
+/* layout */
+$breakpoint1: 20em; //(320/16) + em; 		//=> mobile: min-width 320px
+$breakpoint2: 48em; //(768/16) + em; 		//=> tablet: min-width 768px
+$breakpoint3: 61.875em; //(990/16) + em;	//=> desktop: min-width 990px
+
+/* Colors */
+$black: #000 !default;
+$white: #fff !default;
+$grey: #555 !default;
+$greyDark: darken($grey, 15%) !default;
+$greyLight: lighten($grey, 15%) !default;
+
+/* Scaffolding */
+$bodyBackground: $white !default;
+$textColor: $greyDark !default;
+$ciColor: #c00;
+
+/* Links */
+$linkColor: $ciColor !default;
+$linkColorHover: darken($linkColor, 15%) !default;

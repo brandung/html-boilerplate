@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>[Seitentitel]</title>
+	<meta name="description" content="">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="cleartype" content="on">
+
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/%%public%%/img/touch/apple-touch-icon-144x144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/%%public%%/img/touch/apple-touch-icon-114x114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/%%public%%/img/touch/apple-touch-icon-72x72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="/%%public%%/img/touch/apple-touch-icon-57x57-precomposed.png">
+	<link rel="shortcut icon" href="/%%public%%/img/touch/apple-touch-icon.png">
+
+	<!-- Tile icon for Win8 (144x144 + tile color) -->
+	<meta name="msapplication-TileImage" content="/%%public%%/img/touch/apple-touch-icon-144x144-precomposed.png">
+	<meta name="msapplication-TileColor" content="#222222">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-title" content="">
+
+	<script src="/%%public%%/js/libs/vendor/modernizr/modernizr.js"></script>
+
+	<!--[if lte IE 8]>
+	<link rel="stylesheet" href="/%%public%%/css/all-old-ie.css">		<![endif]-->		<!--[if gt IE 8]><!-->
+	<link rel="stylesheet" href="/%%public%%/css/main.css">
+	<!--<![endif]-->
+</head>
+<body>
+<noscript>
+	<p><strong>JavaScript scheint in Ihrem Browser deaktiviert zu sein.</strong></p>
+	<p>Sie müssen JavaScript in Ihrem Browser aktivieren um alle Funktionen der Seite nutzen zu können.</p>
+</noscript>
+<div class="wrapper-margins">
+	<div class="wrapper">
+		<div id="hiddenNav">
+			<a href="#container">Skip to content</a> | <a href="#nav">Skip to navigation</a>
+		</div>
+		<header>
+			Header
+			<nav role="navigation">
+				Navi
+			</nav>
+		</header>
+		<main id="main" role="main">
+
+			<h1>@col layout</h1>
+
+			<h2>Col1-layout</h2>
+
+			<div class="col1-layout" style="background: #efefef">
+				<div class="col-main" style="background: #3CF">Col1-layout > col-main</div>
+			</div>
+
+			<h2>Col2-left-layout > col-main / col-left </h2>
+
+			<div class="col2-left-layout" style="background: #efefef">
+				<div class="col-main" style="background: #3CF">col-main</div>
+				<div class="col-left" style="background: #3CF">col-left</div>
+			</div>
+
+			<h2>Col2-right-layout > col-main / col-right </h2>
+
+			<div class="col2-right-layout" style="background: #efefef">
+				<div class="col-main" style="background: #3CF">col-main</div>
+				<div class="col-right" style="background: #3CF">col-right</div>
+			</div>
+
+			<hr>
+
+			<h2>Col1-layout > Colsets</h2>
+
+			<div class="col1-layout" style="background: #efefef">
+				<div class="col-main">
+					<p>col2-set</p>
+
+					<div class="col2-set">
+						<div class="col-1" style="background: #3CF">col-1</div>
+						<div class="col-2" style="background: #39F">col-2</div>
+					</div>
+					<p>col2-set - wide right</p>
+
+					<div class="col2-set">
+						<div class="col-1 narrow" style="background: #3CF">narrow</div>
+						<div class="col-2 wide" style="background: #39F">wide</div>
+					</div>
+					<p>col2-set - wide left</p>
+
+					<div class="col2-set">
+						<div class="col-1 wide" style="background: #39F">wide</div>
+						<div class="col-2 narrow" style="background: #3CF">narrow</div>
+					</div>
+					<p>col3-set</p>
+
+					<div class="col3-set">
+						<div class="col-1" style="background: #3CF">col-1</div>
+						<div class="col-2" style="background: #39F">col-2</div>
+						<div class="col-3" style="background: #3CF">col-3</div>
+					</div>
+				</div>
+			</div>
+
+			<hr>
+
+			<h2>Modules</h2>
+			<div class="col1-layout" style="background: #efefef">
+				<div class="col-main">
+					<!-- start|bra-pb: html -->
+
+					<!-- end|bra-pb: html -->
+				</div>
+			</div>
+
+			<hr>
+
+		</main>
+		<footer>
+			Footer
+		</footer>
+	</div>
+</div>
+
+<!-- JS -->
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="/%%public%%/js/main.js"></script>
+</body>
+</html>

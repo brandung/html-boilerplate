@@ -1,0 +1,68 @@
+/**
+ * brandung mixins.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2014-03-14
+ * MIT License (MIT)
+ */
+
+
+/* ==========================================================================
+   Mixins
+   ========================================================================== */
+
+/**
+ * Calculate percent value to given property
+ * 
+ * @param {string} $cssProperty - which property
+ * @param {number} $targetSize - element size in pixel
+ * @param {number} $contextSize - context element size in pixel
+ * @param {boolean} $important - set !important property
+ * 
+ */
+@mixin calculatePercentValueOfProperty($cssProperty, $targetSize, $contextSize, $important: false) {
+	@if $important == true {
+		#{$cssProperty}: percentage($targetSize/$contextSize) !important;
+	} @else {
+		#{$cssProperty}: percentage($targetSize/$contextSize);
+	}
+}
+
+
+/**
+ * Calculate PX font size to REM
+ *
+ * - add PX fallback for older browser
+ *
+ * @param {number} $size - element size in pixel
+ * @param {number} $base - body font size in pixel
+ *
+ */
+@mixin fontSizeREM($size: $bodyFontSizePX, $base: $bodyFontSizePX) {
+	font-size: $size + px;
+	font-size: ($size/$base) + rem;
+}
+
+
+/**
+* Mixin for adding vendor prefixes to CSS attributes; useful for the following CSS attributes
+*
+* - border-radius
+* - box-shadow
+* - transition
+* - background-size
+* - box-sizing
+* - animate
+*
+* @param {string} $attribute - CSS attribute that needs vendor prefixes, e.g. border-radius or transition
+* @param {string} $value - The specific CSS value, e.g. "translateX .2s ease-out"
+*/
+@mixin prefix($attribute, $value) {
+	-webkit-#{$attribute}:$value;
+	-moz-#{$attribute}:$value;
+	@if $attribute == transition { -ms-#{$attribute}:$value; }
+	@else if $attribute == animate { -ms-#{$attribute}:$value; }
+	#{$attribute}:$value;
+}
