@@ -135,6 +135,20 @@ Brandung.Plugins.loadScripts = function() {
 };
 
 /**
+ #####################################
+ #                                   #
+ #        helper functions           #
+ #                                   #
+ #####################################
+ */
+Brandung.Helpers = {
+
+	init: function() {
+	}
+
+};
+
+/**
 #####################################
 #                                   #
 #        global functions           #
@@ -148,9 +162,9 @@ Brandung.Functions = {
 	
 };
 
-/**
- * snippets placeholer
- */
+
+
+// snippets placeholer
 // --- start|bra-pb: js ---
 // --- end|bra-pb: js ---
 
@@ -166,5 +180,6 @@ $(function(){
 	// init objects
 	Brandung.Mobile.init();
 	Brandung.Plugins.init();
+	Brandung.Helpers.init();
 	Brandung.Functions.init();
 });
