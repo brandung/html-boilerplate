@@ -52,6 +52,7 @@
 * - border-radius
 * - box-shadow
 * - transition
+* - transform
 * - background-size
 * - box-sizing
 * - animate
@@ -62,7 +63,9 @@
 @mixin prefix($attribute, $value) {
 	-webkit-#{$attribute}:$value;
 	-moz-#{$attribute}:$value;
+	-o-#{$attribute}:$value;
 	@if $attribute == transition { -ms-#{$attribute}:$value; }
 	@else if $attribute == animate { -ms-#{$attribute}:$value; }
+	@else if $attribute == transform { -ms-#{$attribute}:$value; }
 	#{$attribute}:$value;
 }
