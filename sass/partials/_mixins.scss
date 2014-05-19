@@ -64,8 +64,6 @@
 	-webkit-#{$attribute}:$value;
 	-moz-#{$attribute}:$value;
 	-o-#{$attribute}:$value;
-	@if $attribute == transition { -ms-#{$attribute}:$value; }
-	@else if $attribute == animate { -ms-#{$attribute}:$value; }
-	@else if $attribute == transform { -ms-#{$attribute}:$value; }
+	-ms-#{$attribute}:$value;
 	#{$attribute}:$value;
 }
