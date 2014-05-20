@@ -83,6 +83,7 @@ Brandung.DeferMainPlugins.then(function () {
 			Brandung.Mobile = {
 
 				init: function () {
+					// Place here all functions that need to be invoked on every page load
 				}
 
 			};
@@ -191,6 +192,7 @@ Brandung.DeferMainPlugins.then(function () {
 			Brandung.Helpers = {
 
 				init: function () {
+					// Place here all functions that need to be invoked on every page load
 				}
 
 			};
@@ -205,6 +207,7 @@ Brandung.DeferMainPlugins.then(function () {
 			Brandung.Functions = {
 
 				init: function () {
+					// Place here all functions that need to be invoked on every page load
 				}
 
 			};
