@@ -165,20 +165,32 @@ Brandung.DeferMainPlugins.then(function () {
 				 * @param {string|int} - if this parameter changes, the dependencies will be refetched
 				 * from the server
 				 */
-					// dummy call
-					//	$('[SELECTOR]').loadModule([
-					//		Brandung.folderPath + '[PATH_TO_JS_SOURCE]'
-					//	],
-					//	function () {
-					//		// do something after script has been loaded
-					//	}, 'unique');
 
-					// load hotfix files
+				// dummy call
+				//	$('[SELECTOR]').loadModule([
+				//		Brandung.folderPath + '[PATH_TO_JS_SOURCE]'
+				//	],
+				//	function () {
+				//		// do something after script has been loaded
+				//	}, 'unique');
+
+				// load hotfix files
 				$('body').loadModule([
 					Brandung.folderPath + 'hotfix.js',
 					'%%public%%/css/hotfix.css'
 				], function () {
 				}, new Date().getTime());
+
+				// loader helper.js on mobile devices
+				if(Brandung.Mobile.mediaDevice === 'smartphone') {
+					$('body').loadModule([
+						Brandung.folderPath + 'libs/vendor/h5bp/helper.js'
+					], function () {
+						// init MBP helper functions
+						MBP.scaleFix();
+						MBP.hideUrlBar();
+					}, 'unique');
+				}
 
 			};
 
