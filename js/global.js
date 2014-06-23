@@ -47,7 +47,7 @@ Brandung.IE8 = (document.all && !document.addEventListener) ? true : false;
 // for all modern browsers load the main plugins via basket
 Brandung.DeferMainPlugins = Brandung.IE8 ? jQuery.Deferred() : basket.require(
 	{
-		url : Brandung.folderPath + 'libs/vendor/jquery/jquery.min.js',
+		url : '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js',
 		unique : '1.11.0'
 	},
 	{
