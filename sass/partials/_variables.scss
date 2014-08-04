@@ -32,8 +32,14 @@ $greyLight: lighten($grey, 15%) !default;
 
 /* Scaffolding */
 $bodyBackground: $white !default;
+$backgroundColor: $white !default;
+$borderColor: $grey !default;
+$borderColorForm: $grey !default;
+$ciColor: #c00 !default;
 $textColor: $greyDark !default;
-$ciColor: #c00;
+$errorColor: red !default;
+$successColor: green !default;
+$infoColor: yellow !default;
 
 /* Links */
 $linkColor: $ciColor !default;
