@@ -26,7 +26,11 @@ var Brandung = Brandung || {};
  * set folder path
  * @type {string}
  */
-Brandung.folderPath = '%%public%%/js/';
+if(Brandung.dynamicFolderPath) {
+	Brandung.folderPath = Brandung.dynamicFolderPath;
+} else {
+	Brandung.folderPath = '%%public%%/js/';
+}
 
 /**
  * IE <= 8 detection
