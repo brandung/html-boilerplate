@@ -1,12 +1,12 @@
 /**
- * brandung layout.scss v1.0.0
+ * brandung layout.scss v2.0.0
  *
  * @require vendor/gridset
  *
  * Copyright brandung GmbH & Co.KG
  * http://www.brandung.de/
  *
- * Date: 2014-03-14
+ * Date: 2014-09-23
  * MIT License (MIT)
  */
 
@@ -15,11 +15,40 @@
    Global Layout
    ========================================================================== */
 
+* {
+	@include prefix(box-sizing, border-box)
+}
+
 body {
-	background: $bodyBackground;
-	color: $textColor;
-	font-size: percentage($bodyFontSize/100);
+	background: $body-background;
+	color: $text-color;
+	font-size: percentage($body-font-size/100);
 	line-height: 1.4;
+}
+
+main {
+	@extend .container;
+
+	&:after {
+		@extend .clearfix;
+	}
+}
+
+
+/* ==========================================================================
+  Content Elements
+  ========================================================================== */
+
+noscript {
+	color: $white;
+	margin: 0.2em 0;
+	background: $ci-color;
+	padding: 0.2em 0;
+	text-align: center;
+	p {
+		margin: 0 auto;
+		max-width: $container-max-width;
+	}
 }
 
 img {
@@ -28,233 +57,64 @@ img {
 	max-width: 100%;
 }
 
-#hiddenNav {
-	position: absolute;
-	top: -50em;
-	left: -999em;
-}
-
-.wrapper-margins {
-	background: $white;
-	margin: 0 auto;
-	min-width: ($wrapperMinWidth/$bodyFontSizePX) + em;
-	max-width: ($wrapperMaxWidth/$bodyFontSizePX) + em;
-	text-align: left;
-}
-
-.wrapper {
-	width: auto;
+hr {
+	@extend .clearfix;
+	margin: 20px 0;
 }
 
 /* ==========================================================================
-   Base Columns
+   media queries -
+   for viewport detection only!
    ========================================================================== */
 
-.col-left {
-}
-
-.col-main {
-}
-
-.col-right {
-}
-
-/* 1 Column layout */
-.col1-layout {
-}
-
-.col1-layout .col-main {
-	@include respond-min($breakpoint1) {
-		@include gs-span(m, 1, 1);
-	}
-	@include respond-min($breakpoint2) {
-		@include gs-span(t, 1, 2);
-	}
-	@include respond-min($breakpoint3) {
-		@include gs-span(d, 1, 4, false, ie);
+/* Smartphones (portrait) */
+@include respond-min($breakpoint-min-xs) {
+	body:after {
+		content: 'smartphone';
+		position: absolute;
+		top: -100em;
+		left: -100em;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
 	}
 }
 
-/* 2 Columns Layout - left */
-.col2-left-layout {
-}
-
-.col2-left-layout .col-main {
-	@include respond-min($breakpoint1) {
-	}
-	@include respond-min($breakpoint2) {
-		@include gs-span(d, 2, 4, false, ie);
-	}
-	@include respond-min($breakpoint3) {
-		@include gs-span(d, 2, 4, false, ie);
+/* Smartphones (landscape)  */
+@include respond-min($breakpoint-min-s) {
+	body:after {
+		content: 'smartphone';
+		position: absolute;
+		top: -100em;
+		left: -100em;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
 	}
 }
 
-.col2-left-layout .col-left {
-	@include respond-min($breakpoint1) {
-	}
-	@include respond-min($breakpoint2) {
-		/*@include gs-span(t,1);*/
-		@include gs-span(d, 1);
-	}
-	@include respond-min($breakpoint3) {
-		@include gs-span(d, 1);
-	}
-}
-
-/* 2 Columns Layout - right */
-.col2-right-layout {
-}
-
-.col2-right-layout .col-main {
-	@include respond-min($breakpoint1) {
-	}
-	@include respond-min($breakpoint2) {
-		/*@include gs-span(t,1);*/
-		@include gs-span(d, 1, 3, false, ie);
-	}
-	@include respond-min($breakpoint3) {
-		@include gs-span(d, 1, 3, false, ie);
+/* Tablet (portrait) */
+@include respond-min($breakpoint-min-m) {
+	body:after {
+		content: 'tablet';
+		position: absolute;
+		top: -100em;
+		left: -100em;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
 	}
 }
 
-.col2-right-layout .col-right {
-	@include respond-min($breakpoint1) {
+/* Desktop */
+@include respond-min($breakpoint-min-l) {
+	body:after {
+		content: 'desktop';
+		position: absolute;
+		top: -100em;
+		left: -100em;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
 	}
-	@include respond-min($breakpoint2) {
-		/*@include gs-span(t,2);*/
-		@include gs-span(d, 4);
-	}
-	@include respond-min($breakpoint3) {
-		@include gs-span(d, 4);
-	}
-}
-
-/* col2 set */
-.col2-set .col-1 {
-	@include respond-min($breakpoint1) {
-		/*@include gs-span(m,all,false,(1,1));*/
-	}
-	@include respond-min($breakpoint2) {
-		@include gs-span(t, 1);
-	}
-	@include respond-min($breakpoint3) {
-		@include gs-span(d, 1, 2, (1,4), ie);
-	}
-}
-
-.col2-set .col-2 {
-	@include respond-min($breakpoint1) {
-		/*@include gs-span(m,all,false,(1,1));*/
-	}
-	@include respond-min($breakpoint2) {
-		@include gs-span(t, 2, 2);
-	}
-	@include respond-min($breakpoint3) {
-		@include gs-span(d, 3, 4, (1,4), ie);
-	}
-}
-
-.col2-set .narrow {
-	@include respond-min($breakpoint1) {
-		/*@include gs-span(m,1,false,(1,1));*/
-	}
-	@include respond-min($breakpoint2) {
-		/*@include gs-span(t,1,false,(1,2));*/
-		@include gs-span(db, 1, false, (1,3), ie);
-	}
-	@include respond-min($breakpoint3) {
-		@include gs-span(db, 1, false, (1,3), ie);
-	}
-}
-
-.col2-set .wide {
-	@include respond-min($breakpoint1) {
-		/*@include gs-span(m,1,false,(1,1));*/
-	}
-	@include respond-min($breakpoint2) {
-		/*@include gs-span(t,2,2,(1,2));*/
-		@include gs-span(db, 2, 3, (1,3), ie);
-	}
-	@include respond-min($breakpoint3) {
-		@include gs-span(db, 2, 3, (1,3), ie);
-	}
-}
-
-.col2-set .col-1.wide {
-	@include respond-min($breakpoint1) {
-		/*@include gs-span(m,all,false,(1,1));*/
-	}
-	@include respond-min($breakpoint2) {
-		/*@include gs-span(t,1);*/
-		@include gs-span(db, 1, 2, (1,3), ie);
-	}
-	@include respond-min($breakpoint3) {
-		@include gs-span(db, 1, 2, (1,3), ie);
-	}
-}
-
-.col2-set .col-2.narrow {
-	@include respond-min($breakpoint1) {
-		/*@include gs-span(m,all,false,(1,1));*/
-	}
-	@include respond-min($breakpoint2) {
-		/*@include gs-span(t,2,false,(1,2));*/
-		@include gs-span(db, 3, false, (1,3), ie);
-	}
-	@include respond-min($breakpoint3) {
-		@include gs-span(db, 3, false, (1,3), ie);
-	}
-}
-
-/* col3 set */
-.col3-set .col-1 {
-	@include respond-min($breakpoint1) {
-	}
-	@include respond-min($breakpoint2) {
-		/*@include gs-span(t,1);*/
-		@include gs-span(db, 1, false, (1,3), ie);
-	}
-	@include respond-min($breakpoint3) {
-		@include gs-span(db, 1, false, (1,3), ie);
-	}
-}
-
-.col3-set .col-2 {
-	@include respond-min($breakpoint1) {
-	}
-	@include respond-min($breakpoint2) {
-		/*@include gs-span(t,2);*/
-		@include gs-span(db, 2, false, (1,3), ie);
-	}
-	@include respond-min($breakpoint3) {
-		@include gs-span(db, 2, false, (1,3), ie);
-	}
-}
-
-.col3-set .col-3 {
-	@include respond-min($breakpoint1) {
-	}
-	@include respond-min($breakpoint2) {
-		/*@include gs-span(t,2);*/
-		@include gs-span(db, 3, false, (1,3), ie);
-	}
-	@include respond-min($breakpoint3) {
-		@include gs-span(db, 3, false, (1,3), ie);
-	}
-}
-
-/* clearfix */
-.col1-layout:after,
-.col2-left-layout:after,
-.col2-right-layout:after,
-.col2-set:after,
-.col3-set:after {
-	display: block;
-	content: ".";
-	clear: both;
-	font-size: 0;
-	line-height: 0;
-	height: 0;
-	overflow: hidden;
 }
