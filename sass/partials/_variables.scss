@@ -1,46 +1,59 @@
 /**
- * brandung variables.scss v1.0.0
+ * brandung variables.scss v2.0.0
  *
  * Copyright brandung GmbH & Co.KG
  * http://www.brandung.de/
  *
- * Date: 2014-03-14
+ * Date: 2014-09-23
  * MIT License (MIT)
  */
 
 
 /* Body font size */
-$bodyFontSizePX: 16; 						// 16px
-$bodyFontSize: $bodyFontSizePX/16*100; 		// in percent
+$body-font-size-px: 16; 							// 16px
+$body-font-size: $body-font-size-px/16*100; 		// in percent
 
 /* Container width */
-$wrapperMaxWidth: 1280;	// in px
-$wrapperMinWidth: 320;	// in px
-$contentWidth: 960;		// in px
+$container-max-width: 1200;	// in px
+$container-min-width: 320;	// in px
 
-/* layout */
-$breakpoint1: 20em; //(320/16) + em; 		//=> mobile: min-width 320px
-$breakpoint2: 48em; //(768/16) + em; 		//=> tablet: min-width 768px
-$breakpoint3: 61.875em; //(990/16) + em;	//=> desktop: min-width 990px
+// Number of columns in the grid.
+$grid-columns: 12 !default;
+// Padding between columns.
+// Gets divided in half for the left and right.
+$grid-gutter-width: 30px !default;
+
+/* Media queries Breakpoints */
+$breakpoint-min-xs: 20em;	//(320/16) + em;		//=> mobile: min-width 320px
+$breakpoint-min-s: 30em;	//(480/16) + em; 		//=> large mobile: min-width 480px
+$breakpoint-min-m: 48em;	//(768/16) + em; 		//=> tablet: min-width 768px
+$breakpoint-min-l: 62em;	//(992/16) + em;		//=> desktop: min-width 992px
+$breakpoint-min-xl: 75em;	//(1200/16) + em;		//=> extra large desktop: min-width 1200px
+
+// So media queries don't overlap when required, provide a maximum
+$breakpoint-mx-xs: ($breakpoint-min-s - 1) !default;
+$breakpoint-max-s: ($breakpoint-min-m - 1) !default;
+$breakpoint-max-m: ($breakpoint-min-l - 1) !default;
+$breakpoint-max-l: ($breakpoint-min-xl - 1) !default;
 
 /* Colors */
 $black: #000 !default;
 $white: #fff !default;
 $grey: #555 !default;
-$greyDark: darken($grey, 15%) !default;
-$greyLight: lighten($grey, 15%) !default;
+$grey-dark: darken($grey, 15%) !default;
+$grey-light: lighten($grey, 15%) !default;
 
 /* Scaffolding */
-$bodyBackground: $white !default;
-$backgroundColor: $white !default;
-$borderColor: $grey !default;
-$borderColorForm: $grey !default;
-$ciColor: #c00 !default;
-$textColor: $greyDark !default;
-$errorColor: red !default;
-$successColor: green !default;
-$infoColor: yellow !default;
+$body-background: $white !default;
+$background-color: $white !default;
+$border-color: $grey !default;
+$border-color-form: $grey !default;
+$ci-color: #c00 !default;
+$text-color: $grey-dark !default;
+$error-color: red !default;
+$success-color: green !default;
+$info-color: yellow !default;
 
 /* Links */
-$linkColor: $ciColor !default;
-$linkColorHover: darken($linkColor, 15%) !default;
+$link-color: $ci-color !default;
+$link-color-hover: darken($link-color, 15%) !default;
