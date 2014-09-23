@@ -1,10 +1,10 @@
 /**
- * brandung mixins.scss v1.0.0
+ * brandung mixins.scss v2.0.0
  *
  * Copyright brandung GmbH & Co.KG
  * http://www.brandung.de/
  *
- * Date: 2014-03-14
+ * Date: 2014-09-23
  * MIT License (MIT)
  */
 
@@ -87,10 +87,104 @@
 * @include svg-bg('logo', $color: #fff, ...);
 *
 */
-@mixin svg-bg($name: image-name, $extension: png, $color: transparent, $position: 0 0, $repeat: no-repeat) {
+@mixin svgBG($name: image-name, $extension: png, $color: transparent, $position: 0 0, $repeat: no-repeat) {
 	@if $old-ie {
-		background: url(/%%public%%/img/#{$extension}/#{$name}.#{$extension}) $color $position $repeat;
+		background: url(/src/public/img/#{$extension}/#{$name}.#{$extension}) $color $position $repeat;
 	} @else {
-		background: url(/%%public%%/img/svg/#{$name}.svg) $color $position $repeat;
+		background: url(/src/public/img/svg/#{$name}.svg) $color $position $repeat;
 	}
+}
+
+/**
+* Clearfix
+*
+* For modern browsers
+* 1. The space content is one way to avoid an Opera bug when the
+*     contenteditable attribute is included anywhere else in the document.
+*     Otherwise it causes space to appear at the top and bottom of elements
+*     that are clearfixed.
+* 2. The use of `table` rather than `block` is only necessary if using
+*     `:before` to contain the top-margins of child elements.
+*
+* Source: http://nicolasgallagher.com/micro-clearfix-hack/
+*/
+
+@mixin clearfix() {
+	&:before,
+	&:after {
+		content: " "; // 1
+		display: table; // 2
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+/**
+* Grid mixins
+*
+* Generate semantic grid columns with these mixins.
+* based on the bootstrap-sass partial
+*/
+
+// Centered container element
+@mixin containerFixed($gutter: $grid-gutter-width) {
+	margin-right: auto;
+	margin-left: auto;
+	padding-left:  ($gutter / 2);
+	padding-right: ($gutter / 2);
+	@include clearfix();
+}
+
+// Creates a wrapper for a series of columns
+@mixin makeRow($gutter: $grid-gutter-width) {
+	margin-left:  ($gutter / -2);
+	margin-right: ($gutter / -2);
+	@include clearfix();
+}
+
+// [converter] This is defined recursively in LESS, but Sass supports real loops
+@mixin makeGridColumns($i: 1, $list: ".col-xs-#{$i},  .col-s-#{$i}, .col-m-#{$i}, .col-l-#{$i}, .col-xl-#{$i}") {
+	@for $i from (1 + 1) through $grid-columns {
+		$list: "#{$list}, .col-xs-#{$i}, .col-s-#{$i}, .col-m-#{$i}, .col-l-#{$i}, .col-xl-#{$i}";
+	}
+	#{$list} {
+		position: relative;
+		// Prevent columns from collapsing when empty
+		min-height: 1px;
+		// Inner gutter via padding
+		padding-left:  ($grid-gutter-width / 2);
+		padding-right: ($grid-gutter-width / 2);
+	}
+}
+
+// [converter] This is defined recursively in LESS, but Sass supports real loops
+@mixin floatGridColumns($class, $i: 1, $list: ".col-#{$class}-#{$i}") {
+	@for $i from (1 + 1) through $grid-columns {
+		$list: "#{$list}, .col-#{$class}-#{$i}";
+	}
+	#{$list} {
+		float: left;
+	}
+}
+
+// [converter] This is defined recursively in LESS, but Sass supports real loops
+@mixin loopGridColumns($columns, $class, $type) {
+	@for $i from 0 through $columns {
+		@include calcGridColumn($i, $class, $type);
+	}
+}
+
+@mixin calcGridColumn($index, $class, $type) {
+	@if ($type == width) and ($index > 0) {
+		.col-#{$class}-#{$index} {
+			width: percentage(($index / $grid-columns));
+		}
+	}
+}
+
+// Create grid for specific class
+@mixin makeGrid($class) {
+	@include floatGridColumns($class);
+	@include loopGridColumns($grid-columns, $class, width);
 }

@@ -61,3 +61,18 @@
 	text-align: center;
 }
 
+.show-grid {
+	[class*="col-"] {
+		background: #ccc;
+		outline: 1px solid red;
+	}
+
+	header {
+		background: rgba(0,255,0,.5);
+	}
+
+	footer {
+		background: rgba(0,255,255,.5);
+	}
+}
+
