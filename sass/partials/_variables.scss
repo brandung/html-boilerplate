@@ -31,7 +31,7 @@ $breakpoint-min-l: 62em;	//(992/16) + em;		//=> desktop: min-width 992px
 $breakpoint-min-xl: 75em;	//(1200/16) + em;		//=> extra large desktop: min-width 1200px
 
 // So media queries don't overlap when required, provide a maximum
-$breakpoint-mx-xs: ($breakpoint-min-s - 1) !default;
+$breakpoint-max-xs: ($breakpoint-min-s - 1) !default;
 $breakpoint-max-s: ($breakpoint-min-m - 1) !default;
 $breakpoint-max-m: ($breakpoint-min-l - 1) !default;
 $breakpoint-max-l: ($breakpoint-min-xl - 1) !default;
