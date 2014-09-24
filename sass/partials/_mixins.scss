@@ -40,7 +40,7 @@
  * @param {number} $base - body font size in pixel
  *
  */
-@mixin fontSizeREM($size: $bodyFontSizePX, $base: $bodyFontSizePX) {
+@mixin fontSizeREM($size: $body-font-size-px, $base: $body-font-size-px) {
 	font-size: $size + px;
 	font-size: ($size/$base) + rem;
 }
@@ -89,9 +89,9 @@
 */
 @mixin svgBG($name: image-name, $extension: png, $color: transparent, $position: 0 0, $repeat: no-repeat) {
 	@if $old-ie {
-		background: url(/src/public/img/#{$extension}/#{$name}.#{$extension}) $color $position $repeat;
+		background: url(../img/#{$extension}/#{$name}.#{$extension}) $color $position $repeat;
 	} @else {
-		background: url(/src/public/img/svg/#{$name}.svg) $color $position $repeat;
+		background: url(../img/svg/#{$name}.svg) $color $position $repeat;
 	}
 }
 
