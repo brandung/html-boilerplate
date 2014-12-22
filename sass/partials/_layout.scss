@@ -22,7 +22,7 @@
 body {
 	background: $body-background;
 	color: $text-color;
-	font-size: percentage($body-font-size/100);
+	font-size: $body-font-size;
 	line-height: 1.4;
 }
 
@@ -67,10 +67,10 @@ hr {
    for viewport detection only!
    ========================================================================== */
 
-/* Smartphones (portrait) */
+/* Featurephones and Smartphones (portrait) */
 @include respond-min($breakpoint-min-xs) {
 	body:after {
-		content: 'smartphone';
+		content: 'featurephone';
 		position: absolute;
 		top: -100em;
 		left: -100em;
@@ -110,6 +110,19 @@ hr {
 @include respond-min($breakpoint-min-l) {
 	body:after {
 		content: 'desktop';
+		position: absolute;
+		top: -100em;
+		left: -100em;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+	}
+}
+
+/* Full HD and Retina */
+@include respond-min($breakpoint-min-xl) {
+	body:after {
+		content: 'retina';
 		position: absolute;
 		top: -100em;
 		left: -100em;
