@@ -40,9 +40,22 @@
  * @param {number} $base - body font size in pixel
  *
  */
-@mixin fontSizeREM($size: $body-font-size-px, $base: $body-font-size-px) {
+@mixin fontSizeREM($size: $body-font-size-px, $base: $base-em) {
 	font-size: $size + px;
-	font-size: ($size/$base) + rem;
+	font-size: ($size / $base) + rem;
+}
+
+
+/**
+ * Calculates given px value to rem value
+ *
+ * @param {string} $prop - css property name, e.g. font-size, line-height; Default: 'font-size'
+ * @param {number} $size - size in px; Default: $body-font-size-px
+ *
+ */
+@mixin propToREM($prop: 'font-size', $size: $body-font-size-px) {
+	#{$prop}: $size + px;
+	#{$prop}: ($size / $base-em) + rem;
 }
 
 
@@ -60,12 +73,11 @@
 * @param {string} $attribute - CSS attribute that needs vendor prefixes, e.g. border-radius or transition
 * @param {string} $value - The specific CSS value, e.g. "translateX .2s ease-out"
 */
+$prefixes: ("-webkit-","-moz-", "-o-", "-ms-", "");
 @mixin prefix($attribute, $value) {
-	-webkit-#{$attribute}:$value;
-	-moz-#{$attribute}:$value;
-	-o-#{$attribute}:$value;
-	-ms-#{$attribute}:$value;
-	#{$attribute}:$value;
+	@each $prefix in $prefixes {
+		#{$prefix}#{$attribute}:unquote(#{$value});
+	}
 }
 
 
