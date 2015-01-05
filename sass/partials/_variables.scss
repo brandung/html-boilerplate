@@ -8,33 +8,40 @@
  * MIT License (MIT)
  */
 
+/* Base sizes */
+$base-em: 16;
+
+$featurephone: 320;
+$smartphone: 480;
+$tablet: 768;
+$desktop: 992;
+$retina: 1200;
 
 /* Body font size */
-$body-font-size-px: 16; 							// 16px
-$body-font-size: $body-font-size-px/16*100; 		// in percent
+$body-font-size-px: 16;
+$body-font-size: percentage( ($body-font-size-px / $base-em) * 100 / 100 ); 	// in percent
+
+/* Device widths */
 
 /* Container width */
-$container-max-width: 1200;	// in px
-$container-min-width: 320;	// in px
+$container-max-width: $retina;							// in px without unit!
+$container-min-width: $featurephone;					// in px without unit!
 
 // Number of columns in the grid.
-$grid-columns: 12 !default;
-// Padding between columns.
-// Gets divided in half for the left and right.
-$grid-gutter-width: 30px !default;
+$grid-columns: 12 !default;						// Padding between columns.
+$grid-gutter-width: 30px !default;				// Gets divided in half for the left and right.
 
-/* Media queries Breakpoints */
-$breakpoint-min-xs: 20em;	//(320/16) + em;		//=> mobile: min-width 320px
-$breakpoint-min-s: 30em;	//(480/16) + em; 		//=> large mobile: min-width 480px
-$breakpoint-min-m: 48em;	//(768/16) + em; 		//=> tablet: min-width 768px
-$breakpoint-min-l: 62em;	//(992/16) + em;		//=> desktop: min-width 992px
-$breakpoint-min-xl: 75em;	//(1200/16) + em;		//=> extra large desktop: min-width 1200px
+$breakpoint-min-xs: pxToEm($featurephone);		//=> mobile: min-width 320px
+$breakpoint-min-s: pxToEm($smartphone);			//=> large mobile: min-width 480px
+$breakpoint-min-m: pxToEm($tablet);				//=> tablet: min-width 768px
+$breakpoint-min-l: pxToEm($desktop);			//=> desktop: min-width 992px
+$breakpoint-min-xl: pxToEm($retina);			//=> extra large desktop: min-width 1200px
 
 // So media queries don't overlap when required, provide a maximum
-$breakpoint-max-xs: ($breakpoint-min-s - 1) !default;
-$breakpoint-max-s: ($breakpoint-min-m - 1) !default;
-$breakpoint-max-m: ($breakpoint-min-l - 1) !default;
-$breakpoint-max-l: ($breakpoint-min-xl - 1) !default;
+$breakpoint-max-xs: pxToEm($smartphone - 1); 	//=> mobile: max-width 479px
+$breakpoint-max-s: pxToEm($tablet - 1);			//=> large mobile: max-width 767px
+$breakpoint-max-m: pxToEm($desktop - 1);		//=> tablet: max-width 991px
+$breakpoint-max-l: pxToEm($retina - 1);			//=> desktop: max-width 1199px
 
 /* Colors */
 $black: #000 !default;
