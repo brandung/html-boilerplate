@@ -1,5 +1,5 @@
 /**
- * brandung footer.scss v1.0.0
+ * brandung navigation.scss v1.0.0
  *
  * Copyright brandung GmbH & Co.KG
  * http://www.brandung.de/
@@ -10,11 +10,9 @@
 
 
 /* ==========================================================================
-   Footer
+   Navigation
    ========================================================================== */
 
-footer {
-	&:after {
-		@extend .clearfix;
-	}
+nav {
+	@include clearfix();
 }

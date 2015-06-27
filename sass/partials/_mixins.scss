@@ -15,12 +15,12 @@
 
 /**
  * Calculate percent value to given property
- * 
+ *
  * @param {string} $cssProperty - which property
  * @param {number} $targetSize - element size in pixel
  * @param {number} $contextSize - context element size in pixel
  * @param {boolean} $important - set !important property
- * 
+ *
  */
 @mixin calculatePercentValueOfProperty($cssProperty, $targetSize, $contextSize, $important: false) {
 	@if $important == true {
@@ -92,7 +92,7 @@ $prefixes: ("-webkit-","-moz-", "-o-", "-ms-", "");
 * @param {number} $position - background position
 * @param {string} $repeat - background repeat
 *
-* @reauire $old-ie variable from _sass-ie.scss
+* @require $old-ie variable from _sass-ie.scss
 *
 * Use:
 * @include svg-bg('logo')
@@ -199,4 +199,16 @@ $prefixes: ("-webkit-","-moz-", "-o-", "-ms-", "");
 @mixin makeGrid($class) {
 	@include floatGridColumns($class);
 	@include loopGridColumns($grid-columns, $class, width);
+}
+
+@mixin respondMin($width) {
+	@media screen and (min-width: $width) {
+		@content;
+	}
+}
+
+@mixin respondMax($width) {
+	@media screen and (max-width: $width) {
+		@content;
+	}
 }

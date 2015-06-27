@@ -17,13 +17,11 @@
 @import "partials/variables";
 @import "partials/mixins";
 
-
 /**
  * normalize
  * https://github.com/necolas/normalize.css
  */
 @import "vendor/normalize";
-
 
 /**
  * h5bp main.css
@@ -31,13 +29,11 @@
  */
 @import "vendor/h5bp";
 
-
 /**
  * old-ie mixin
  * https://gridsetapp.com/
  */
-@import "vendor/sass-ie";
-
+//@import "vendor/_sass-ie_DELETE";
 
 /**
  * vendor utilities
@@ -59,35 +55,10 @@
 @import "partials/grid";
 @import "partials/sprite-icons";
 @import "partials/typo";
+@import "partials/icon-font";
 @import "partials/helpers";
 @import "partials/buttons";
-@import "partials/header";
-@import "partials/footer";
-@import "partials/navigation";
 
-
-/**
-* ie-rules
-*/
-@import "partials/ie-rules";
-
-
-/**
- * modules placeholder
- * - import all modules files
- *
- * - for grunt-build-process:
- * - package files by download builder
- * - add files by appendAssets task in project builder (bra-pd)
- */
-
-// --- start|bra-pb: scss ---
-
-// --- end|bra-pb: scss ---
-
-
-
-
-
-
-
+@import "partials/component/_header";
+@import "partials/component/_footer";
+@import "partials/component/_navigation";

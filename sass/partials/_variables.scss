@@ -1,21 +1,25 @@
 /**
- * brandung variables.scss v2.0.0
+ * brandung variables.scss v3.0.0
  *
  * Copyright brandung GmbH & Co.KG
  * http://www.brandung.de/
  *
- * Date: 2014-09-23
+ * Date: 2015-06-27
  * MIT License (MIT)
  */
 
+/* base path */
+$folder-path: '%%public%%';
+
 /* Base sizes */
 $base-em: 16;
-
+/* <@breakpoints */
 $featurephone: 320;
 $smartphone: 480;
 $tablet: 768;
 $desktop: 992;
 $retina: 1200;
+/* breakpoints@> */
 
 /* Body font size */
 $body-font-size-px: 16;
@@ -24,43 +28,57 @@ $body-font-size: percentage( ($body-font-size-px / $base-em) * 100 / 100 ); 	// 
 /* Device widths */
 
 /* Container width */
-$container-max-width: $retina;							// in px without unit!
-$container-min-width: $featurephone;					// in px without unit!
+$container-max-width: $retina;
+$container-min-width: $featurephone;
 
 // Number of columns in the grid.
-$grid-columns: 12 !default;						// Padding between columns.
-$grid-gutter-width: 30px !default;				// Gets divided in half for the left and right.
+$grid-columns: 12 !default;
+// Padding between columns.
+$grid-gutter-width: 30px !default;
+// Gets divided in half for the left and right.
+$grid-gutter-width-half: $grid-gutter-width / 2;
 
-$breakpoint-min-xs: pxToEm($featurephone);		//=> mobile: min-width 320px
-$breakpoint-min-s: pxToEm($smartphone);			//=> large mobile: min-width 480px
-$breakpoint-min-m: pxToEm($tablet);				//=> tablet: min-width 768px
-$breakpoint-min-l: pxToEm($desktop);			//=> desktop: min-width 992px
-$breakpoint-min-xl: pxToEm($retina);			//=> extra large desktop: min-width 1200px
+$breakpoints: (
+	'min-xs': pxToEm($featurephone),
+	'min-s': pxToEm($smartphone),
+	'min-m': pxToEm($tablet),
+	'min-l': pxToEm($desktop),
+	'min-xl': pxToEm($retina),
+	'max-xs': pxToEm($smartphone - 1),
+	'max-s': pxToEm($tablet - 1),
+	'max-m': pxToEm($desktop - 1),
+	'max-l': pxToEm($retina - 1)
+);
 
-// So media queries don't overlap when required, provide a maximum
-$breakpoint-max-xs: pxToEm($smartphone - 1); 	//=> mobile: max-width 479px
-$breakpoint-max-s: pxToEm($tablet - 1);			//=> large mobile: max-width 767px
-$breakpoint-max-m: pxToEm($desktop - 1);		//=> tablet: max-width 991px
-$breakpoint-max-l: pxToEm($retina - 1);			//=> desktop: max-width 1199px
+@function point($breakpoint) {
+	@return map-get($breakpoints, $breakpoint);
+}
 
 /* Colors */
-$black: #000 !default;
-$white: #fff !default;
-$grey: #555 !default;
-$grey-dark: darken($grey, 15%) !default;
-$grey-light: lighten($grey, 15%) !default;
+/* <@colors */
+$colors: (
+	'black': #000,
+	'white': #fff,
+	'grey': #666,
+	'grey-dark': #333,
+	'grey-light': #999,
+	'ci-color': #c00,
+	'error-color': red,
+	'success-color': green,
+	'info-color': yellow
+);
+/* colors@> */
 
-/* Scaffolding */
-$body-background: $white !default;
-$background-color: $white !default;
-$border-color: $grey !default;
-$border-color-form: $grey !default;
-$ci-color: #c00 !default;
-$text-color: $grey-dark !default;
-$error-color: red !default;
-$success-color: green !default;
-$info-color: yellow !default;
+@function color($color) {
+	@return map-get($colors, $color);
+}
 
-/* Links */
-$link-color: $ci-color !default;
-$link-color-hover: darken($link-color, 15%) !default;
+/* <@icons */
+$icons: (
+	dummy: '\e63c'
+);
+/* icons@> */
+
+@function icon($icon) {
+	@return map-get($icons, $icon);
+}

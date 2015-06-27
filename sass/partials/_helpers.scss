@@ -13,66 +13,98 @@
    Helper classes
    ========================================================================== */
 
-.clearfix {
-	display: block;
-	content: ".";
-	clear: both;
-	font-size: 0;
-	line-height: 0;
-	height: 0;
-	overflow: hidden;
-}
-
-.unstyled {
+.util-unstyled {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-.left {
-	display: inline;
+.util-left {
 	float: left;
 }
 
-.right {
-	display: inline;
+.util-right {
 	float: right;
 }
 
-.center {
+.util-center {
 	display: block;
 	margin: 0 auto;
 	text-align: center;
 }
 
-.clear {
+.util-clear {
 	clear: both;
 }
 
-.text-right {
+.util-text-right {
 	text-align: right;
 }
 
-.text-left {
+.util-text-left {
 	text-align: left;
 }
 
-.text-center {
+.util-text-center {
 	text-align: center;
 }
 
-.show-grid {
+.util-show-grid {
 	[class*="col-"] {
-		background: #ccc;
+		background: grey;
 		outline: 1px solid red;
 	}
 
 	header {
-		background: rgba(0,255,0,.5);
+		background: rgba(green, .5);
 	}
 
 	footer {
-		background: rgba(0,255,255,.5);
+		background: rgba(cyan, .5);
+	}
+}
+
+.util-reset-margin {
+	margin: 0 !important;
+
+	&-top {
+		margin-top: 0 !important;
+	}
+
+	&-bottom {
+		margin-bottom: 0 !important;
+	}
+}
+
+/** + bootstrap visibility utilities */
+.util-hidden,
+.util-visible-xs,
+.util-visible-sm,
+.util-visible-m,
+.util-visible-l,
+.util-visible-xl {
+	display: none !important;
+}
+
+// todo integrate in variables partial
+$sizes: (
+		'xs', 's', 'm', 'l', 'xl'
+);
+
+@each $size in $sizes {
+	//$breakpoint-variable:
+	@include respondMin(map-get($breakpoints, 'min-' + #{$size})) {
+		.util-visible-#{$size} {
+			display: block !important;
+		}
+
+		span.util-visible-#{$size} {
+			display: inline !important;
+		}
+
+		.util-hidden-#{$size} {
+			display: none !important;
+		}
 	}
 }
 

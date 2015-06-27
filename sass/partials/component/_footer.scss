@@ -1,5 +1,5 @@
 /**
- * brandung header.scss v1.0.0
+ * brandung footer.scss v1.0.0
  *
  * Copyright brandung GmbH & Co.KG
  * http://www.brandung.de/
@@ -10,11 +10,9 @@
 
 
 /* ==========================================================================
-   Header
+   Footer
    ========================================================================== */
 
-header {
-	&:after {
-		@extend .clearfix;
-	}
+footer {
+	@include clearfix();
 }
