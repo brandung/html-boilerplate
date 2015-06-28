@@ -116,11 +116,11 @@ basket.timeout = 60000;
 
 Brandung.Util.loadMainPlugins = basket.require(
 	{
-		url: Brandung.GlobalVars.folderPath + '/libs/vendor/jquery/jquery.min.js',
+		url: Brandung.GlobalVars.folderPath + 'js/libs/vendor/jquery/jquery.min.js',
 		unique: Brandung.Util.getUnique()
 	},
 	{
-		url: Brandung.GlobalVars.folderPath + 'libs/vendor/modernizr/modernizr.custom.min.js',
+		url: Brandung.GlobalVars.folderPath + 'js/libs/vendor/modernizr/modernizr.custom.min.js',
 		unique: Brandung.Util.getUnique()
 	}
 );
