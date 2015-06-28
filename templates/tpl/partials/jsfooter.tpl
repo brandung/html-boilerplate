@@ -1,4 +1,2 @@
-		<!-- JS -->
-		<script src="/%%public%%/js/main.js"></script>
-	</body>
-</html>
+	<!-- JS -->
+	<script src="/%%public%%/js/main.js"></script>
