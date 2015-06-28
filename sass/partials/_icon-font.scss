@@ -25,9 +25,9 @@
 	@extend %util-icon;
 }
 
-@each $param, $value in $icon-params {
-	.util-icon--before.util-icon--#{$param}:before,
-	.util-icon--after.util-icon--#{$param}:after {
-		content: $value;
+@each $name, $char in $icons {
+	.util-icon--before.util-icon--#{$name}:before,
+	.util-icon--after.util-icon--#{$name}:after {
+		content: $char;
 	}
 }
