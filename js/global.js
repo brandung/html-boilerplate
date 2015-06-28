@@ -142,6 +142,31 @@ Brandung.Util.loadMainPlugins.then(function () {
 					$doc: $(document)
 				});
 
+				// <@delete
+				Brandung.Plugin.initDebugMode = function () {
+					if (Brandung.GlobalVars.isDev) {
+						$('body').bra_moduleWidget();
+
+						// hide widget on small displays
+						var showWidget = function () {
+							if (Brandung.GlobalVars.currentBreakpoint < 768) {
+								$('#bra-module-widget').hide();
+							} else {
+								$('#bra-module-widget').show();
+							}
+						};
+
+						$(window).load(function () {
+							showWidget();
+						});
+
+						$(window).resize(function () {
+							showWidget();
+						});
+					}
+				};
+				// delete@>
+
 				Brandung.Handler.init = function () {
 					this.setEventClass();
 
@@ -239,7 +264,7 @@ Brandung.Util.loadMainPlugins.then(function () {
 								Brandung.GlobalVars.folderPath + 'js/libs/bra/dbug/bra/bra-module-widget/bra-module-widget.css'
 							],
 							callback: [
-								{ method: Brandung.Helpers.initDebugMode }
+								{ method: Brandung.Plugin.initDebugMode }
 							],
 							unique: Brandung.Util.getUnique()
 						},
