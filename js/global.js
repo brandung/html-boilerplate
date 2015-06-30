@@ -1,3 +1,6 @@
+/**##############################
+#		Global Namespace		#
+#################################*/
 var Brandung = function (out) {
 	out = out || {};
 
@@ -16,21 +19,23 @@ var Brandung = function (out) {
 	return out;
 }({}, (Brandung || {}), {
 	GlobalVars: {
-		// set path to js folder
+		// path to assets folder
 		folderPath: '%%public%%/',
-		breakpoints: [320, 480, 768, 992, 1280],
-		breakpointClasses: {
+		// standard breakpoints
+		breakpoints: {
 			320: 'xs',
 			480: 's',
 			768: 'm',
 			992: 'l',
 			1280: 'xl'
 		},
+		// mobile first
 		currentBreakpoint: 320,
+		// portrait first
 		currentOrientation: 'portrait',
 		isIE: window.navigator.userAgent.indexOf("MSIE ") > -1 || // IE <= 10
-		!(window.ActiveXObject) && "ActiveXObject" in window || // IE 11
-		/x64|x32/ig.test(window.navigator.userAgent) // IE 12
+			!(window.ActiveXObject) && "ActiveXObject" in window || // IE 11
+			/x64|x32/ig.test(window.navigator.userAgent) // IE 12
 	},
 	Util: {
 		consolePolyfill: function () {
@@ -50,16 +55,13 @@ var Brandung = function (out) {
 				}());
 			}
 		}(),
-		// basket error handler
+		// basket loading error handler
 		errorHandler: function (error) {
 			console.error('An error occurred while fetching main scripts:');
 			console.error(error);
 		},
-		/**
-		 * Debounced resize eventhandler
-		 *
-		 * http://www.paulirish.com/2009/throttled-smartresize-jquery-event-handler/
-		 */
+		// Debounced resize eventhandler
+		// http://www.paulirish.com/2009/throttled-smartresize-jquery-event-handler/
 		injectSmartResize: function ($, sr) {
 			// debouncing function from John Hann
 			// http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
@@ -91,6 +93,7 @@ var Brandung = function (out) {
 				return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr);
 			};
 		},
+		// unique key generator for import.js
 		getUnique: function (getProdUnique) {
 			if (!window.location.origin) {
 				window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
@@ -105,15 +108,22 @@ var Brandung = function (out) {
 			}
 		}
 	},
+	// CSS components script namespace
 	Component: {},
-	Plugin: {},
+	// functions must return something
 	Function: {},
+	// everything that has todo with event handling
 	Handler: {},
-	Page: {}
+	// mainly used for imports
+	Page: {},
+	// Should be used that has nothing to do with components, e.g. placeholder polyfill
+	Plugin: {}
 });
 
+// abortion timeout for asset fetching, default 5000ms
 basket.timeout = 60000;
 
+// load main plugin
 Brandung.Util.loadMainPlugins = basket.require(
 	{
 		url: Brandung.GlobalVars.folderPath + 'js/libs/vendor/jquery/jquery.min.js',
@@ -125,178 +135,209 @@ Brandung.Util.loadMainPlugins = basket.require(
 	}
 );
 
+// when main plugins are available, create a closure and
+// inject jQuery to it
 Brandung.Util.loadMainPlugins.then(function () {
 	(function ($) {
+		// add smartresize handler to $ object
 		Brandung.Util.injectSmartResize($, 'smartresize');
 
+		// load import.js
 		Brandung.Util.loadImportPlugin = basket.require(
 			{
 				url: Brandung.GlobalVars.folderPath + 'js/libs/vendor/import/jquery.import.min.js',
 				unique: Brandung.Util.getUnique()
 			}
 		).then(function () {
-				Brandung.GlobalVars = $.extend(Brandung.GlobalVars, {
-					$html: $('html'),
-					$body: $('body'),
-					$window: $(window),
-					$doc: $(document)
-				});
+			// store commonly used jQuery objects to GlobalVars object
+			Brandung.GlobalVars = $.extend(Brandung.GlobalVars, {
+				$html: $('html'),
+				$body: $('body'),
+				$window: $(window),
+				$doc: $(document)
+			});
 
-				// <@delete
-				Brandung.Plugin.initDebugMode = function () {
+			/**##########################################
+			#		Immediately needed functions		#
+			#############################################*/
+			// <@delete
+			// initializes debug widget for template development
+			Brandung.Plugin.initDebugMode = function () {
+				if (Brandung.GlobalVars.isDev) {
+					$('body').bra_moduleWidget();
+
+					// hide widget on small displays
+					var showWidget = function () {
+						if (Brandung.GlobalVars.currentBreakpoint < 768) {
+							$('#bra-module-widget').hide();
+						} else {
+							$('#bra-module-widget').show();
+						}
+					};
+
+					$(window).load(function () {
+						showWidget();
+					});
+
+					$(window).resize(function () {
+						showWidget();
+					});
+				}
+			};
+			// delete@>
+
+			// mobile boilerplate mobile helper functions
+			Brandung.Plugin.h5bpHelper = function () {
+				MBP.scaleFix();
+				MBP.hideUrlBar();
+			};
+
+			// initializes always needed handler functions
+			Brandung.Handler.init = function () {
+				this.setEventClass();
+
+				this.resizeHandler();
+			};
+
+			// adds a given class to the html tag
+			Brandung.Handler.setEventClass = function () {
+				var handler = function (e, className) {
+					Brandung.GlobalVars.$html.addClass(className);
+				};
+
+				Brandung.GlobalVars.$doc.on('on-set-class', handler);
+			};
+
+			// adds classes to the html tag representing the current breakpoint
+			// and orientation
+			Brandung.Handler.resizeHandler = function () {
+				var handler = function () {
+					var breakpoint, orientation;
+
+					Brandung.GlobalVars.currentBreakpoint = Brandung.Function.getBreakpoint();
+					Brandung.GlobalVars.currentOrientation = Brandung.Function.getOrientation();
+
+					breakpoint = 'on-breakpoint-' + Brandung.GlobalVars.breakpointClasses[Brandung.GlobalVars.currentBreakpoint];
+					orientation = 'on-orientation-' + Brandung.GlobalVars.currentOrientation;
+
+					if (!Brandung.GlobalVars.$html.hasClass(breakpoint)) {
+						Brandung.GlobalVars.$html[0]
+							.className = Brandung.GlobalVars.$html[0].className
+							.replace(/\s?on-breakpoint-(xs|s|m|l|xl)/g, '');
+
+						Brandung.GlobalVars.$doc.trigger('on-set-class', [breakpoint]);
+						Brandung.GlobalVars.$doc.trigger('on-changed-breakpoint', [Brandung.GlobalVars.currentBreakpoint]);
+					}
+
+					if (!Brandung.GlobalVars.$html.hasClass(orientation)) {
+						Brandung.GlobalVars.$html[0]
+							.className = Brandung.GlobalVars.$html[0].className
+							.replace(/\s?on-orientation-(landscape|portrait)/g, '');
+
+						Brandung.GlobalVars.$doc.trigger('on-set-class', [orientation]);
+					}
+				};
+
+				// TODO: evaluate if smartresize is triggered on orientationchange
+				Brandung.GlobalVars.$window.smartresize(handler);
+				handler();
+			};
+
+			// loading error handler
+			Brandung.Handler.importError = function () {
+				var handler = function (event, errorObj) {
+					// todo define error handling for live
 					if (Brandung.GlobalVars.isDev) {
-						$('body').bra_moduleWidget();
-
-						// hide widget on small displays
-						var showWidget = function () {
-							if (Brandung.GlobalVars.currentBreakpoint < 768) {
-								$('#bra-module-widget').hide();
-							} else {
-								$('#bra-module-widget').show();
-							}
-						};
-
-						$(window).load(function () {
-							showWidget();
-						});
-
-						$(window).resize(function () {
-							showWidget();
-						});
-					}
-				};
-				// delete@>
-
-				Brandung.Handler.init = function () {
-					this.setEventClass();
-
-					this.resizeHandler();
-				};
-
-				Brandung.Handler.setEventClass = function () {
-					var handler = function (e, className) {
-						Brandung.GlobalVars.$html.addClass(className);
-					};
-
-					Brandung.GlobalVars.$doc.on('on-set-class', handler);
-				};
-
-				Brandung.Handler.resizeHandler = function () {
-					var handler = function () {
-						var breakpoint, orientation;
-
-						Brandung.GlobalVars.currentBreakpoint = Brandung.Function.getBreakpoint();
-						Brandung.GlobalVars.currentOrientation = Brandung.Function.getOrientation();
-
-						breakpoint = 'on-breakpoint-' + Brandung.GlobalVars.breakpointClasses[Brandung.GlobalVars.currentBreakpoint];
-						orientation = 'on-orientation-' + Brandung.GlobalVars.currentOrientation;
-
-						if (!Brandung.GlobalVars.$html.hasClass(breakpoint)) {
-							Brandung.GlobalVars.$html[0]
-								.className = Brandung.GlobalVars.$html[0].className
-								.replace(/\s?on-breakpoint-(xs|s|m|l|xl)/g, '');
-
-							Brandung.GlobalVars.$doc.trigger('on-set-class', [breakpoint]);
-							Brandung.GlobalVars.$doc.trigger('on-changed-breakpoint', [Brandung.GlobalVars.currentBreakpoint]);
-						}
-
-						if (!Brandung.GlobalVars.$html.hasClass(orientation)) {
-							Brandung.GlobalVars.$html[0]
-								.className = Brandung.GlobalVars.$html[0].className
-								.replace(/\s?on-orientation-(landscape|portrait)/g, '');
-
-							Brandung.GlobalVars.$doc.trigger('on-set-class', [orientation]);
-						}
-					};
-
-					// TODO: evaluate if smartresize is triggered on orientationchange
-					Brandung.GlobalVars.$window.smartresize(handler);
-					handler();
-				};
-
-				Brandung.Handler.importError = function () {
-					var handler = function (event, errorObj) {
-						// todo define error handling for live
-						if (Brandung.GlobalVars.isDev) {
-							console.error(errorObj);
-						}
-					};
-
-					Brandung.GlobalVars.$doc.on('on-loading-error', handler);
-				};
-
-				Brandung.Function.getBreakpoint = function () {
-					var windowWidth = window.innerWidth,
-						breakpoint;
-
-					for (var i = Brandung.GlobalVars.breakpoints.length - 1; i >= 0; i -= 1) {
-						breakpoint = Brandung.GlobalVars.breakpoints[i];
-
-						if (windowWidth >= breakpoint) {
-							return Brandung.GlobalVars.breakpoints[i];
-						} else if (i === 0 && windowWidth < Brandung.GlobalVars.breakpoints[i]) {
-							return Brandung.GlobalVars.breakpoints[i];
-						}
+						console.error(errorObj);
 					}
 				};
 
-				Brandung.Function.getOrientation = function () {
-					var windowWidth = window.innerWidth,
-						windowHeight = window.innerHeight,
-						orientation;
+				Brandung.GlobalVars.$doc.on('on-loading-error', handler);
+			};
 
-					if(windowWidth <= windowHeight) {
-						orientation = 'portrait'
-					} else {
-						orientation = 'landscape';
+			Brandung.Function.getBreakpoint = function () {
+				var windowWidth = window.innerWidth,
+					breakpoints = Object.keys(Brandung.GlobalVars.breakpoints);
+					breakpoint;
+
+				for (var i = breakpoints.length - 1; i >= 0; i -= 1) {
+					breakpoint = breakpoints[i];
+
+					if (windowWidth >= breakpoint) {
+						return breakpoints[i];
+					} else if (i === 0 && windowWidth < breakpoints[i]) {
+						return breakpoints[i];
 					}
+				}
+			};
 
-					return orientation;
-				};
+			Brandung.Function.getOrientation = function () {
+				var windowWidth = window.innerWidth,
+					windowHeight = window.innerHeight,
+					orientation;
 
-				Brandung.Page.init = function () {
-					Brandung.GlobalVars.mainModules = $.import([
-						// <@delete
-						{
-							condition: true,
-							fetch: [
-								Brandung.GlobalVars.folderPath + 'js/libs/bra/dbug/bra/bra-module-widget/bra-module-widget.js',
-								Brandung.GlobalVars.folderPath + 'js/libs/bra/dbug/bra/bra-module-widget/bra-module-widget.css'
-							],
-							callback: [
-								{ method: Brandung.Plugin.initDebugMode }
-							],
-							unique: Brandung.Util.getUnique()
-						},
-						// delete@>
-						{
-							// load always
-							condition: true,
-							fetch: [
-								Brandung.GlobalVars.folderPath + 'js/hotfix.js',
-								Brandung.GlobalVars.folderPath + 'css/hotfix.css'
-							],
-							unique: new Date().getTime()
-						}// <@newComponent@>
-					], true);
-				};
+				if(windowWidth <= windowHeight) {
+					orientation = 'portrait'
+				} else {
+					orientation = 'landscape';
+				}
 
-				// snippets placeholder
-				// --- start|bra-pb: js ---
-				// --- end|bra-pb: js ---
+				return orientation;
+			};
 
-				/**
-				 #####################################
-				 #                                   #
-				 #         document ready            #
-				 #                                   #
-				 #####################################
-				 */
-				$(function () {
-					// init objects
-					Brandung.Page.init();
-					Brandung.Handler.init();
-				});
-			}, Brandung.Util.errorHandler);
+			Brandung.Page.init = function () {
+				Brandung.GlobalVars.mainModules = $.import([
+					// <@delete
+					{
+						condition: true,
+						fetch: [
+							Brandung.GlobalVars.folderPath + 'js/libs/bra/dbug/bra/bra-module-widget/bra-module-widget.js',
+							Brandung.GlobalVars.folderPath + 'js/libs/bra/dbug/bra/bra-module-widget/bra-module-widget.css'
+						],
+						callback: [
+							{ method: Brandung.Plugin.initDebugMode }
+						],
+						unique: Brandung.Util.getUnique()
+					},
+					// delete@>
+					{
+						condition: Brandung.Function.getBreakpoint() < 768,
+						fetch: [
+							Brandung.GlobalVars.folderPath + 'js/libs/vendor/h5bp/helper.js'
+						],
+						callback: [
+							{ method: Brandung.Plugin.h5bpHelper }
+						],
+						unique: Brandung.Util.getUnique()
+					},
+					{
+						// load always and always from server
+						condition: true,
+						fetch: [
+							Brandung.GlobalVars.folderPath + 'js/hotfix.js',
+							Brandung.GlobalVars.folderPath + 'css/hotfix.css'
+						],
+						unique: new Date().getTime()
+					}// <@newComponent@>
+				], true);
+			};
+
+			// snippets placeholder
+			// --- start|bra-pb: js ---
+			// --- end|bra-pb: js ---
+
+			/**
+			 #####################################
+			 #                                   #
+			 #         document ready            #
+			 #                                   #
+			 #####################################
+			 */
+			$(function () {
+				// init objects
+				Brandung.Page.init();
+				Brandung.Handler.init();
+			});
+		}, Brandung.Util.errorHandler);
 	})(jQuery);
 }, Brandung.Util.errorHandler);
