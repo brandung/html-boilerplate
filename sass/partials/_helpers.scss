@@ -86,14 +86,11 @@
 	display: none !important;
 }
 
-// todo integrate in variables partial
 $sizes: (
 		'xs', 's', 'm', 'l', 'xl'
 );
-
 @each $size in $sizes {
-	//$breakpoint-variable:
-	@include respondMin(map-get($breakpoints, 'min-' + #{$size})) {
+	@include respondMin(point('min-' + #{$size})) {
 		.util-visible-#{$size} {
 			display: block !important;
 		}

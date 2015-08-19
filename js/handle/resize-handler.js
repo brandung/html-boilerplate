@@ -8,13 +8,15 @@
  * MIT License (MIT)
  */
 brandung.handle.resizeHandler = function () {
-	var handler = function () {
+	var _ = {};
+
+	_.handler = function () {
 		var breakpoint, orientation;
 
 		brandung.vars.currentBreakpoint = brandung.func.getBreakpoint();
 		brandung.vars.currentOrientation = brandung.func.getOrientation();
 
-		breakpoint = 'on-breakpoint-' + brandung.vars.breakpointClasses[brandung.vars.currentBreakpoint];
+		breakpoint = 'on-breakpoint-' + brandung.vars.breakpoints[brandung.vars.currentBreakpoint];
 		orientation = 'on-orientation-' + brandung.vars.currentOrientation;
 
 		if (!brandung.vars.$html.hasClass(breakpoint)) {
@@ -33,9 +35,8 @@ brandung.handle.resizeHandler = function () {
 
 			brandung.vars.$doc.trigger('on-set-class', [orientation]);
 		}
-	};
+	}();
 
 	// TODO: evaluate if smartresize is triggered on orientationchange
-	brandung.vars.$window.smartresize(handler);
-	handler();
+	brandung.vars.$window.smartresize(_.handler);
 }();

@@ -8,9 +8,11 @@
  * MIT License (MIT)
  */
 brandung.handle.setEventClass = function () {
-	var handler = function (e, className) {
+	var _ = {};
+
+	_.handler = function (e, className) {
 		brandung.vars.$html.addClass(className);
 	};
 
-	brandung.vars.$doc.on('on-set-class', handler);
+	brandung.vars.$doc.on('on-set-class', _.handler);
 }();

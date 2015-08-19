@@ -7,7 +7,7 @@
  * Date: 19.08.2015
  * MIT License (MIT)
  */
-Brandung.util.consolePolyfill = function () {
+brandung.util.consolePolyfill = function () {
 	if (!(window.console && console.log)) {
 		(function () {
 			var noop = function () {
