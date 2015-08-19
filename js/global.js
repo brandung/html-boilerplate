@@ -355,4 +355,8 @@ basket.require(
 		});
 		//}, brandung.util.errorHandler);
 	})(jQuery);
-}, brandung.Util.errorHandler);
+}, function () {
+	// <@delete
+	console.error('fetching and initialization failed');
+	// delete@>
+});
