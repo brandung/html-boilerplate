@@ -51,6 +51,10 @@
 
 			<h2 class="mod-headline">6. Components</h2>
 
+			<h3 class="mod-headline">Alert</h3>
+			{# alert.tpl #}
+			{% include "./partials/component/alert.tpl" %}
+
 			<!-- <@newComponent@> -->
 
 			<!-- start|bra-pb: html -->
@@ -59,10 +63,6 @@
 			<hr/>
 
 			<h2 class="mod-headline">7. Views</h2>
-
-			<h3 class="mod-headline">Alert</h3>
-			{# alert.tpl #}
-			{% include "./partials/component/alert.tpl" %}
 
 			<!-- <@newView@> -->
 		</main>
