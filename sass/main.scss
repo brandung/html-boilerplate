@@ -29,9 +29,9 @@
  */
 @import "vendor/h5bp";
 
-@import "partials/vendor/bootstrap/mixins/_grid-framework.scss";
-@import "partials/vendor/bootstrap/mixins/_grid.scss";
-@import "partials/vendor/bootstrap/_grid.scss";
+@import "vendor/bootstrap/mixins/grid-framework";
+@import "vendor/bootstrap/mixins/grid";
+@import "vendor/bootstrap/grid";
 
 /**
  * layout
