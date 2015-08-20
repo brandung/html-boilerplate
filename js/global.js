@@ -84,9 +84,9 @@ basket.require(
 						// <@bundle#before-render
 						Brandung.Vars.folderPath + 'js/util/console-polyfill.js',
 						Brandung.Vars.folderPath + 'js/util/inject-smartresize.js',
-						Brandung.Vars.folderPath + 'js/util/assert-breakpoint.js',
-						Brandung.Vars.folderPath + 'js/func/get-breakpoint.js',
-						Brandung.Vars.folderPath + 'js/func/get-orientation.js',
+						Brandung.Vars.folderPath + 'js/function/assert-breakpoint.js',
+						Brandung.Vars.folderPath + 'js/function/get-breakpoint.js',
+						Brandung.Vars.folderPath + 'js/function/get-orientation.js',
 						Brandung.Vars.folderPath + 'js/handle/set-event-class.js',
 						Brandung.Vars.folderPath + 'js/handle/resize-handler.js',
 						Brandung.Vars.folderPath + 'js/util/get-unique.js'
@@ -114,7 +114,7 @@ basket.require(
 				},
 				// delete@>
 				{
-					condition: true,
+					condition: Brandung.Function.assertBreakpoint('lt', 'md'),
 					fetch: [
 						// <@bundle#h5bp-helper
 						Brandung.Vars.folderPath + 'js/libs/vendor/h5bp/helper.js',

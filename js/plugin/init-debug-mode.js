@@ -13,7 +13,7 @@ Brandung.Plugin.initDebugMode = function () {
 
 		// hide widget on small displays
 		var showWidget = function () {
-			if (Brandung.Vars.currentBreakpoint < 768) {
+			if (Brandung.Function.assertBreakpoint('lt', 'md')) {
 				$('#bra-module-widget').hide();
 			} else {
 				$('#bra-module-widget').show();

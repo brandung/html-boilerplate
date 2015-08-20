@@ -9,7 +9,7 @@
  */
 Brandung.Function.assertBreakpoint = function (breakpointIn, operator, breakpoint) {
 	var breakpoints = Object.keys(Brandung.Vars.breakpoints),
-		curBreakpointIndex = breakpoints.indexOf(breakpointIn), // Brandung.Vars.currentBreakpoint
+		curBreakpointIndex = breakpoints.indexOf(Brandung.Vars.currentBreakpoint),
 		conditionalBreakpointIndex = breakpoints.indexOf(breakpoint);
 
 	switch (operator) {
@@ -27,8 +27,3 @@ Brandung.Function.assertBreakpoint = function (breakpointIn, operator, breakpoin
 			break;
 	}
 };
-
-// Brandung.Vars.currentBreakpoint < 768
-Brandung.Function.assertBreakpoint('sm', 'lt', 'md');
-Brandung.Function.assertBreakpoint('md', 'eq', 'md');
-Brandung.Function.assertBreakpoint('md', 'ht', 'xs');
