@@ -1,0 +1,45 @@
+@charset "utf-8";
+/**
+ * brandung alert v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2015-07-28
+ * MIT License (MIT)
+ */
+
+@import '../partials/functions';
+@import '../partials/variables';
+@import '../partials/mixins';
+
+.alert {
+	border: solid 1px $grey-space;
+	border-top-width: 6px;
+	padding: 5px $grid-gutter-width-half;
+	margin-bottom: $grid-gutter-width;
+
+	:first-child {
+		margin-top: 0;
+	}
+
+	:last-child {
+		margin-bottom: 0;
+	}
+
+	&--info {
+		border-color: $blue;
+	}
+
+	&--warning {
+		border-color: $orange;
+	}
+
+	&--error {
+		border-color: $red;
+	}
+
+	&--success {
+		border-color: $ci-color;
+	}
+}

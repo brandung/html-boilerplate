@@ -45,7 +45,7 @@
 
 			<h2 class="mod-headline">5. Forms</h2>
 			{# forms.tpl #}
-			{% include "./partials/forms.tpl.tpl" %}
+			{% include "./partials/forms.tpl" %}
 
 			<hr/>
 
@@ -59,6 +59,10 @@
 			<hr/>
 
 			<h2 class="mod-headline">7. Views</h2>
+
+			<h3 class="mod-headline">Alert</h3>
+			{# alert.tpl #}
+			{% include "./partials/component/alert.tpl" %}
 
 			<!-- <@newView@> -->
 		</main>

@@ -130,6 +130,13 @@ basket.require(
 						Brandung.vars.folderPath + 'css/hotfix.css'
 					],
 					unique: new Date().getTime()
+				},
+				{
+					condition: $('.alert'),
+					fetch: [
+						Brandung.vars.folderPath + 'css/component/alert.css'
+					],
+					unique: Brandung.util.getUnique()
 				}// <@newComponent@>
 			], true);
 		};

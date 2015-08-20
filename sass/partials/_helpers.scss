@@ -64,6 +64,126 @@
 	}
 }
 
+.util-reset-padding {
+	padding: 0 !important;
+
+	&-top {
+		padding-top: 0 !important;
+	}
+
+	&-right {
+		padding-right: 0 !important;
+	}
+
+	&-bottom {
+		padding-bottom: 0 !important;
+	}
+
+	&-left {
+		padding-left: 0 !important;
+	}
+
+	&-x {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+
+	&-y {
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+	}
+}
+
+.util-add-padding {
+	padding: $grid-gutter-width-half !important;
+
+	&-full {
+		padding: $grid-gutter-width !important;
+	}
+
+	&-double {
+		padding: $grid-gutter-width * 2 !important;
+	}
+
+	&-top {
+		padding-top: $grid-gutter-width-half !important;
+
+		&-full {
+			padding-top: $grid-gutter-width !important;
+		}
+
+		&-double {
+			padding-top: $grid-gutter-width * 2 !important;
+		}
+	}
+
+	&-right {
+		padding-right: $grid-gutter-width-half !important;
+
+		&-full {
+			padding-right: $grid-gutter-width !important;
+		}
+
+		&-double {
+			padding-right: $grid-gutter-width * 2 !important;
+		}
+	}
+
+	&-bottom {
+		padding-bottom: $grid-gutter-width-half !important;
+
+		&-full {
+			padding-bottom: $grid-gutter-width !important;
+		}
+
+		&-double {
+			padding-bottom: $grid-gutter-width * 2 !important;
+		}
+	}
+
+	&-left {
+		padding-left: $grid-gutter-width-half !important;
+
+		&-full {
+			padding-left: $grid-gutter-width !important;
+		}
+
+		&-double {
+			padding-left: $grid-gutter-width * 2 !important;
+		}
+	}
+
+	&-x {
+		padding-left: $grid-gutter-width-half !important;
+		padding-right: $grid-gutter-width-half !important;
+
+		&-full {
+			padding-left: $grid-gutter-width !important;
+			padding-right: $grid-gutter-width !important;
+		}
+
+		&-double {
+			padding-left: $grid-gutter-width * 2 !important;
+			padding-right: $grid-gutter-width * 2 !important;
+		}
+	}
+
+	&-y {
+		padding-top: $grid-gutter-width-half !important;
+		padding-bottom: $grid-gutter-width-half !important;
+
+		&-full {
+			padding-top: $grid-gutter-width !important;
+			padding-bottom: $grid-gutter-width !important;
+		}
+
+		&-double {
+			padding-top: $grid-gutter-width * 2 !important;
+			padding-bottom: $grid-gutter-width * 2 !important;
+		}
+	}
+}
+
 .util-reset-margin {
 	margin: 0 !important;
 
@@ -71,8 +191,121 @@
 		margin-top: 0 !important;
 	}
 
+	&-right {
+		margin-right: 0 !important;
+	}
+
 	&-bottom {
 		margin-bottom: 0 !important;
+	}
+
+	&-left {
+		margin-left: 0 !important;
+	}
+
+	&-x {
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+
+	&-y {
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+	}
+
+	&-auto {
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
+}
+
+.util-add-margin {
+	margin: $grid-gutter-width-half !important;
+
+	&-full {
+		margin: $grid-gutter-width !important;
+	}
+
+	&-double {
+		margin: $grid-gutter-width * 2 !important;
+	}
+
+	&-top {
+		margin-top: $grid-gutter-width-half !important;
+
+		&-full {
+			margin-top: $grid-gutter-width !important;
+		}
+
+		&-double {
+			margin-top: $grid-gutter-width * 2 !important;
+		}
+	}
+
+	&-right {
+		margin-right: $grid-gutter-width-half !important;
+
+		&-full {
+			margin-right: $grid-gutter-width !important;
+		}
+
+		&-double {
+			margin-right: $grid-gutter-width * 2 !important;
+		}
+	}
+
+	&-bottom {
+		margin-bottom: $grid-gutter-width-half !important;
+
+		&-full {
+			margin-bottom: $grid-gutter-width !important;
+		}
+
+		&-double {
+			margin-bottom: $grid-gutter-width * 2 !important;
+		}
+	}
+
+	&-left {
+		margin-left: $grid-gutter-width-half !important;
+
+		&-full {
+			margin-left: $grid-gutter-width !important;
+		}
+
+		&-double {
+			margin-left: $grid-gutter-width * 2 !important;
+		}
+	}
+
+	&-x {
+		margin-left: $grid-gutter-width-half !important;
+		margin-right: $grid-gutter-width-half !important;
+
+		&-full {
+			margin-left: $grid-gutter-width !important;
+			margin-right: $grid-gutter-width !important;
+		}
+
+		&-double {
+			margin-left: $grid-gutter-width * 2 !important;
+			margin-right: $grid-gutter-width * 2 !important;
+		}
+	}
+
+	&-y {
+		margin-top: $grid-gutter-width-half !important;
+		margin-bottom: $grid-gutter-width-half !important;
+
+		&-full {
+			margin-top: $grid-gutter-width !important;
+			margin-bottom: $grid-gutter-width !important;
+		}
+
+		&-double {
+			margin-top: $grid-gutter-width * 2 !important;
+			margin-bottom: $grid-gutter-width * 2 !important;
+		}
 	}
 }
 
@@ -104,4 +337,3 @@ $sizes: (
 		}
 	}
 }
-

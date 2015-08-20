@@ -48,33 +48,34 @@
 			<textarea name="foo" title="Deine Eingabe" placeholder="Deine Eingabe"></textarea>
 		</div>
 	</div>
+
 	<h4 class="util-h4">Error states</h4>
 	<div class="row">
 		<div class="input-box col-xs-12">
 			<label for="">Deine Eingabe</label>
-			<input type="text" name="foo" value="" title="Deine Eingabe" placeholder="Deine Eingabe" class="ng-invalid ng-dirty" />
+			<input type="text" name="foo" value="" title="Deine Eingabe" placeholder="Deine Eingabe" class="error" />
 		</div>
 	</div>
 	<div class="row">
 		<div class="input-box col-xs-6">
-			<input type="radio" id="radio1" name="radio-input" class="ng-invalid ng-dirty" value="1" />
+			<input type="radio" id="radio1" name="radio-input" class="error" value="1" />
 			<label for="radio1">Auswahl mit sehr langem Text</label>
 		</div>
 		<div class="input-box col-xs-6">
-			<input type="radio" id="radio2" name="radio-input" class="ng-invalid ng-dirty" value="2" />
+			<input type="radio" id="radio2" name="radio-input" class="error" value="2" />
 			<label for="radio2">Auswahl mit noch viel längerem Text</label>
 		</div>
 	</div>
 	<div class="row">
 		<div class="input-box col-xs-12">
-			<input type="checkbox" id="checkbox1" name="checkbox-input" class="ng-invalid ng-dirty" value="1" />
+			<input type="checkbox" id="checkbox1" name="checkbox-input" class="error" value="1" />
 			<label for="checkbox1">Auswahl mit sehr langem Text</label>
 		</div>
 	</div>
 	<div class="row">
 		<div class="input-box input-check col-xs-12">
 			<label for="checkbox1">Bitte Land wählen</label>
-			<select name="country" class="ng-invalid ng-dirty">
+			<select name="country" class="error">
 				<option value="">Bitte wählen</option>
 				<option value="">Deutschland</option>
 				<option value="">Französisch Guyana</option>
@@ -84,9 +85,10 @@
 	<div class="row">
 		<div class="input-box col-xs-12">
 			<label for="">Deine Eingabe</label>
-			<textarea name="foo" title="Deine Eingabe" placeholder="Deine Eingabe" class="ng-invalid ng-dirty"></textarea>
+			<textarea name="foo" title="Deine Eingabe" placeholder="Deine Eingabe" class="error"></textarea>
 		</div>
 	</div>
+
 	<h4 class="util-h4">Grid</h4>
 	<div class="row">
 		<div class="input-box col-xs-6">
