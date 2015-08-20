@@ -4,10 +4,10 @@
  * Copyright brandung GmbH & Co.KG
  * http://www.brandung.de/
  *
- * Date: 19.08.2015
+ * Date: 19.08.2015s
  * MIT License (MIT)
  */
-Brandung.util.consolePolyfill = function () {
+Brandung.Util.consolePolyfill = function () {
 	if (!(window.console && console.log)) {
 		(function () {
 			var noop = function () {
