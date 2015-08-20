@@ -22,7 +22,7 @@ Brandung.handle.resizeHandler = function () {
 		if (!Brandung.vars.$html.hasClass(breakpoint)) {
 			Brandung.vars.$html[0]
 				.className = Brandung.vars.$html[0].className
-				.replace(/\s?on-breakpoint-(xs|s|m|l|xl)/g, '');
+				.replace(/\s?on-breakpoint-(xs|sm|md|lg|xl)/g, '');
 
 			Brandung.vars.$doc.trigger('on-set-class', [breakpoint]);
 			Brandung.vars.$doc.trigger('on-changed-breakpoint', [Brandung.vars.currentBreakpoint]);

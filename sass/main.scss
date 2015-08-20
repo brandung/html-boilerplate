@@ -29,30 +29,18 @@
  */
 @import "vendor/h5bp";
 
-/**
- * old-ie mixin
- * https://gridsetapp.com/
- */
-//@import "vendor/_sass-ie_DELETE";
+@import "partials/vendor/bootstrap/mixins/_grid-framework.scss";
+@import "partials/vendor/bootstrap/mixins/_grid.scss";
+@import "partials/vendor/bootstrap/_grid.scss";
 
 /**
- * vendor utilities
- * - remove comment when mixin is needed
- */
-// @import "vendor/retina-sprites";
-// @import "vendor/retina-background-image";
-
-
-/**
- * layout and grid
- * - brandung grid
- * - based on the bootstrap v3 gridset
+ * layout
  *
  * - brandung layout files
  * - here you can add new files if needed
  */
 @import "partials/layout";
-@import "partials/grid";
+//@import "partials/grid";
 @import "partials/sprite-icons";
 @import "partials/typo";
 @import "partials/icon-font";
