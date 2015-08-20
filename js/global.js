@@ -94,7 +94,7 @@ basket.require(
 					callback: [
 						{ method: Brandung.plugin.loadComponents }
 					],
-					unique: 0
+					unique: 1
 				}
 			], false);
 		};
