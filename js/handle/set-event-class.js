@@ -7,12 +7,12 @@
  * Date: 19.08.2015
  * MIT License (MIT)
  */
-brandung.handle.setEventClass = function () {
+Brandung.handle.setEventClass = function () {
 	var _ = {};
 
 	_.handler = function (e, className) {
-		brandung.vars.$html.addClass(className);
+		Brandung.vars.$html.addClass(className);
 	};
 
-	brandung.vars.$doc.on('on-set-class', _.handler);
+	Brandung.vars.$doc.on('on-set-class', _.handler);
 }();

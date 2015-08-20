@@ -7,7 +7,7 @@
  * Date: 19.08.2015
  * MIT License (MIT)
  */
-brandung.func.getOrientation = function () {
+Brandung.func.getOrientation = function () {
 	var windowWidth = window.innerWidth,
 		windowHeight = window.innerHeight,
 		orientation;

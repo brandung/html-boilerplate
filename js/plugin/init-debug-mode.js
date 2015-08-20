@@ -7,20 +7,20 @@
  * Date: 19.08.2015
  * MIT License (MIT)
  */
-brandung.plugin.initDebugMode = function () {
-	if (brandung.vars.isDev) {
+Brandung.plugin.initDebugMode = function () {
+	if (Brandung.vars.isDev) {
 		$('body').bra_moduleWidget();
 
 		// hide widget on small displays
 		var showWidget = function () {
-			if (brandung.vars.currentBreakpoint < 768) {
+			if (Brandung.vars.currentBreakpoint < 768) {
 				$('#bra-module-widget').hide();
 			} else {
 				$('#bra-module-widget').show();
 			}
 		};
 
-		brandung.vars.$window.load(function () {
+		Brandung.vars.$window.load(function () {
 			showWidget();
 		}).resize(function () {
 			showWidget();

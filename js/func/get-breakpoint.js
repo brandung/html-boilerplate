@@ -7,13 +7,13 @@
  * Date: 19.08.2015
  * MIT License (MIT)
  */
-brandung.func.getBreakpoint = function () {
+Brandung.func.getBreakpoint = function () {
 	var windowWidth = window.innerWidth,
-		breakpoints = Object.keys(brandung.vars.breakpoints),
+		breakpoints = Object.keys(Brandung.vars.breakpoints),
 		breakpoint;
 
 	for (var i = breakpoints.length - 1; i >= 0; i -= 1) {
-		breakpoint = brandung.vars.breakpoints[breakpoints[i]];
+		breakpoint = Brandung.vars.breakpoints[breakpoints[i]];
 
 		if (windowWidth >= breakpoint) {
 			return breakpoints[i];
