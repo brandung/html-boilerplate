@@ -1,0 +1,355 @@
+/**
+ * brandung forms.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2014-03-14
+ * MIT License (MIT)
+ */
+
+/* ==========================================================================
+   Form Elements
+   ========================================================================== */
+::-webkit-input-placeholder {
+	color: $placeholder;
+	text-transform: uppercase;
+}
+
+::-moz-placeholder {
+	color: $placeholder;
+	text-transform: uppercase;
+}
+
+:-ms-input-placeholder {
+	color: $placeholder;
+	text-transform: uppercase;
+}
+
+.placeholder {
+	color: $placeholder;
+	text-transform: uppercase;
+}
+
+::-ms-clear {
+	display: none;
+}
+
+.input-box {
+	margin-bottom: $grid-gutter-width / 2;
+	position: relative;
+
+	label:first-child {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	.label--visible:first-child {
+		position: static;
+	}
+
+	input[type=text],
+	input[type=email],
+	input[type=number],
+	input[type=password],
+	input[type=tel],
+	input[type=url],
+	input[type=date],
+	input[type=search],
+	select,
+	.select,
+	textarea {
+		background: $grey-lighter;
+		padding: 12px $grid-gutter-width / 2 10px;
+		width: 100%;
+		border: none;
+		border-bottom: solid 1px $ci-color;
+		@include prefix(border-radius, 0);
+
+		&:hover {
+			background: $grey-space;
+		}
+
+		&:focus {
+			outline: none;
+			@include prefix(box-shadow, 0);
+			background: $grey;
+			color: $ci-white;
+		}
+
+		&.ng-dirty.ng-invalid,
+		&.ng-dirty.ng-invalid:focus {
+			background: $red;
+			border-color: $red;
+			color: $ci-white;
+
+			&::-webkit-input-placeholder {
+				color: rgba($ci-white, .5);
+			}
+
+			&::-moz-placeholder {
+				color: rgba($ci-white, .5);
+			}
+
+			&:-ms-input-placeholder {
+				color: rgba($ci-white, .5);
+			}
+
+			&.placeholder {
+				color: rgba($ci-white, .5);
+			}
+		}
+
+		/*&.ng-dirty.ng-invalid,
+		&.error,
+		&.ng-dirty.ng-invalid:hover,
+		&.ng-dirty.ng-invalid:focus,
+		&.error:hover,
+		&.error:focus,
+		&.f3-form-error,
+		&.f3-form-error:hover,
+		&.f3-form-error:focus {
+			&,
+			& + p[class^="pwstrength"] {
+				border-color: $error-color;
+			}
+
+			border-left-width: 5px;
+		}*/
+
+		/*&.ng-dirty.ng-valid {
+			&,
+			& + p[class^="pwstrength"] {
+				border-color: $success-color;
+			}
+			border-left-width: 10px;
+		}
+
+		&.no-validation {
+			&.ng-dirty.ng-invalid,
+			&.error,
+			&.f3-form-error {
+				&,
+				& + p[class^="pwstrength"] {
+					border-color: $input-bg;
+				}
+
+				border-left-width: 1px;
+			}
+
+			&.ng-dirty.ng-valid {
+				&,
+				& + p[class^="pwstrength"] {
+					border-color: $input-bg;
+				}
+				border-left-width: 1px;
+			}
+		}*/
+	}
+
+	input[type=search] {
+		@include prefix(box-sizing, border-box);
+	}
+
+	input,
+	textarea {
+		-webkit-appearance: none;
+		resize: none;
+	}
+
+	textarea {
+		min-height: 300px;
+	}
+
+	select,
+	.select {
+		height: 40px;
+		line-height: 36px;
+		padding: 0 $grid-gutter-width / 2;
+		color: $placeholder;
+
+		&:focus,
+		&:hover {
+			outline: none;
+			@include prefix(box-shadow, 0);
+			background: $grey-space;
+			color: $placeholder;
+		}
+	}
+
+	option,
+	.select-option {
+		color: $black;
+		@include fontSizeREM(16);
+		line-height: auto;
+	}
+
+	&--big {
+		select,
+		.select {
+			height: 55px;
+			line-height: 50px;
+		}
+
+		option,
+		.select-option {
+			padding: 5px 0;
+		}
+	}
+}
+
+input,
+textarea,
+select,
+.select {
+	@include prefix(transition, all .2s);
+
+	&:focus {
+		outline: none;
+		//@include prefix(box-shadow, inset 0 0 3px rgba($black, .25));
+	}
+}
+
+label {
+	cursor: pointer;
+}
+
+.label--white {
+	color: $ci-white;
+}
+
+// + radios and checkboxes
+input[type="radio"],
+input[type="checkbox"] {
+	position: absolute;
+	left: -9999px;
+
+	& + label {
+		position: relative;
+		padding-left: 50px;
+		display: inline-block;
+		cursor: pointer;
+		//margin-bottom: $grid-gutter-width / 2;
+
+		&:hover:before {
+			//border-color: $input-border-active;
+		}
+
+		&:hover,
+		.active {
+			&:before {
+				background: $grey-light;
+				border-color: $grey-light;
+			}
+		}
+
+		&:before,
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			@include prefix(transition, all .1s ease-out);
+			@include prefix(box-sizing, border-box);
+		}
+
+		&:before {
+			width: 30px;
+			height: 30px;
+			top: -3px;
+			left: 0;
+			border: solid 1px $ci-color;
+			background: $ci-white;
+			text-align: center;
+		}
+
+		&:after {
+			width: 20px;
+			height: 20px;
+			top: 2px;
+			left: 5px;
+			background: $ci-color;
+			@include prefix(transform, scale(0));
+		}
+	}
+
+	&.ng-dirty.ng-invalid + label:before {
+		background: $red;
+		border-color: $red;
+	}
+}
+
+.error + label:before {
+	//border-color: $error !important;
+}
+
+input[type="radio"] + label {
+	&:before,
+	&:after {
+		@include prefix(border-radius, 100%);
+	}
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked,
+input[type="checkbox"].ng-dirty.ng-invalid:checked,
+input[type="radio"].ng-dirty.ng-invalid:checked,
+input[checked],
+input[checked].ng-dirty.ng-invalid {
+	& + label:before {
+		border-color: $black;
+	}
+
+	& + label:after {
+		@include prefix(transform, scale(1));
+	}
+}
+
+input[type="checkbox"]:checked + label:before {
+	font-family: 'iconfont', sans-serif;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	//content: "\e60b";
+	color: $ci-white;
+	//@extend %icon-font;
+	//content: map-get($icon-params, check);
+	//line-height: 28px;
+}
+
+input[type="radio"]:checked + label:before {
+	//content: "\f111";
+}
+
+//[readonly] {
+//background: transparent;
+//border: none;
+//}
+
+//.typo3-messages .message-error {
+//	color: $black;
+//}
+
+.form-next-step {
+	height: 0;
+	max-height: 2000px;
+	opacity: 0;
+	visibility: hidden;
+	overflow: hidden;
+	@include prefix(transition, all .5s );
+
+	&.is-visible {
+		padding-top: 3px;
+		height: auto;
+		opacity: 1;
+		visibility: visible;
+		overflow: visible;
+	}
+}

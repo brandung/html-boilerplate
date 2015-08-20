@@ -86,9 +86,9 @@ basket.require(
 						Brandung.vars.folderPath + 'js/util/inject-smartresize.js',
 						Brandung.vars.folderPath + 'js/func/get-breakpoint.js',
 						Brandung.vars.folderPath + 'js/func/get-orientation.js',
-						Brandung.vars.folderPath + 'js/util/get-unique.js',
+						Brandung.vars.folderPath + 'js/handle/set-event-class.js',
 						Brandung.vars.folderPath + 'js/handle/resize-handler.js',
-						Brandung.vars.folderPath + 'js/handle/set-event-class.js'
+						Brandung.vars.folderPath + 'js/util/get-unique.js'
 						// bundle@>
 					],
 					callback: [

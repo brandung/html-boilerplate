@@ -35,8 +35,9 @@ Brandung.handle.resizeHandler = function () {
 
 			Brandung.vars.$doc.trigger('on-set-class', [orientation]);
 		}
-	}();
+	};
 
 	// TODO: evaluate if smartresize is triggered on orientationchange
 	Brandung.vars.$window.smartresize(_.handler);
+	_.handler();
 }();

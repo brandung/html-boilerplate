@@ -41,14 +41,24 @@
 			{# grid.tpl #}
 			{% include "./partials/grid.tpl" %}
 
-			<h2 class="mod-headline">5. Components</h2>
+			<hr/>
+
+			<h2 class="mod-headline">5. Forms</h2>
+			{# forms.tpl #}
+			{% include "./partials/forms.tpl.tpl" %}
+
+			<hr/>
+
+			<h2 class="mod-headline">6. Components</h2>
 
 			<!-- <@newComponent@> -->
 
 			<!-- start|bra-pb: html -->
 			<!-- end|bra-pb: html -->
 
-			<h2 class="mod-headline">6. Views</h2>
+			<hr/>
+
+			<h2 class="mod-headline">7. Views</h2>
 
 			<!-- <@newView@> -->
 		</main>
