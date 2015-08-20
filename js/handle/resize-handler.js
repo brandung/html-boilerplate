@@ -16,7 +16,7 @@ brandung.handle.resizeHandler = function () {
 		brandung.vars.currentBreakpoint = brandung.func.getBreakpoint();
 		brandung.vars.currentOrientation = brandung.func.getOrientation();
 
-		breakpoint = 'on-breakpoint-' + brandung.vars.breakpoints[brandung.vars.currentBreakpoint];
+		breakpoint = 'on-breakpoint-' + brandung.vars.currentBreakpoint;
 		orientation = 'on-orientation-' + brandung.vars.currentOrientation;
 
 		if (!brandung.vars.$html.hasClass(breakpoint)) {

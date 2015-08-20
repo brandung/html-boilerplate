@@ -13,11 +13,11 @@ brandung.func.getBreakpoint = function () {
 		breakpoint;
 
 	for (var i = breakpoints.length - 1; i >= 0; i -= 1) {
-		breakpoint = breakpoints[i];
+		breakpoint = brandung.vars.breakpoints[breakpoints[i]];
 
 		if (windowWidth >= breakpoint) {
 			return breakpoints[i];
-		} else if (i === 0 && windowWidth < breakpoints[i]) {
+		} else if (i === 0 && windowWidth < breakpoint) {
 			return breakpoints[i];
 		}
 	}

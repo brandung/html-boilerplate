@@ -1,7 +1,7 @@
 /**##############################
 #		Global Namespace		#
 #################################*/
-var brandung = function (out) {
+var Brandung = function (out) {
 	out = out || {};
 
 	for (var i = 1; i < arguments.length; i++) {
@@ -17,20 +17,20 @@ var brandung = function (out) {
 	}
 
 	return out;
-}({}, (brandung || {}), {
+}({}, (Brandung || {}), {
 	vars: {
 		// path to assets folder
 		folderPath: '%%public%%/',
 		// standard breakpoints
 		breakpoints: {
-			320: 'xs',
-			480: 's',
-			768: 'm',
-			992: 'l',
-			1280: 'xl'
+			'xs': 320,
+			's': 480,
+			'm': 768,
+			'l': 992,
+			'xl': 1280
 		},
 		// mobile first
-		currentBreakpoint: 320,
+		currentBreakpoint: 'xs',
 		// portrait first
 		currentOrientation: 'portrait',
 		isIE: window.navigator.userAgent.indexOf("MSIE ") > -1 || // IE <= 10
@@ -44,8 +44,6 @@ var brandung = function (out) {
 	func: {},
 	// everything that has to do with event handling
 	handle: {},
-	// mainly used for imports
-	page: {},
 	// Should be used for things which have nothing to do with components, e.g. placeholder polyfills, etc
 	plugin: {}
 });
@@ -56,80 +54,80 @@ basket.timeout = 60000;
 // load main plugins
 basket.require(
 	{
-		url: brandung.vars.folderPath + 'js/libs/vendor/jquery/jquery.min.js',
+		url: Brandung.vars.folderPath + 'js/libs/vendor/jquery/jquery.min.js',
 		unique: 0
 	},
 	{
-		url: brandung.vars.folderPath + 'js/libs/vendor/modernizr/modernizr.custom.min.js',
+		url: Brandung.vars.folderPath + 'js/libs/vendor/modernizr/modernizr.custom.min.js',
 		unique: 0
 	},
 	{
-		url: brandung.vars.folderPath + 'js/libs/vendor/import/jquery.import.min.js',
+		url: Brandung.vars.folderPath + 'js/libs/vendor/import/jquery.import.min.js',
 		unique: 0
 	}
 ).then(function () {
 	(function ($) {
 		// store commonly used jQuery objects to GlobalVars object
-		brandung.vars = $.extend(brandung.vars, {
+		Brandung.vars = $.extend(Brandung.vars, {
 			$html: $('html'),
 			$body: $('body'),
 			$window: $(window),
 			$doc: $(document)
 		});
 
-		brandung.plugin.fetchBeforeRender = function () {
+		Brandung.plugin.fetchBeforeRender = function () {
 			return $.import([
 				{
 					condition: true,
 					order: 0,
 					fetch: [
 						// <@bundle#before-render
-						brandung.vars.folderPath + 'js/util/console-polyfill.js',
-						brandung.vars.folderPath + 'js/util/inject-smartresize.js',
-						brandung.vars.folderPath + 'js/func/get-breakpoint.js',
-						brandung.vars.folderPath + 'js/func/get-orientation.js',
-						brandung.vars.folderPath + 'js/util/get-unique.js',
-						brandung.vars.folderPath + 'js/handle/resize-handler.js',
-						brandung.vars.folderPath + 'js/handle/set-event-class.js'
+						Brandung.vars.folderPath + 'js/util/console-polyfill.js',
+						Brandung.vars.folderPath + 'js/util/inject-smartresize.js',
+						Brandung.vars.folderPath + 'js/func/get-breakpoint.js',
+						Brandung.vars.folderPath + 'js/func/get-orientation.js',
+						Brandung.vars.folderPath + 'js/util/get-unique.js',
+						Brandung.vars.folderPath + 'js/handle/resize-handler.js',
+						Brandung.vars.folderPath + 'js/handle/set-event-class.js'
 						// bundle@>
 					],
 					callback: [
-						{ method: brandung.plugin.loadComponents }
+						{ method: Brandung.plugin.loadComponents }
 					],
 					unique: 0
 				}
 			], false);
 		};
 
-		brandung.plugin.loadComponents = function () {
+		Brandung.plugin.loadComponents = function () {
 			$.import([
 				// <@delete
 				{
 					condition: true,
 					fetch: [
-						brandung.vars.folderPath + 'js/libs/bra/dbug/bra/bra-module-widget/bra-module-widget.js',
-						brandung.vars.folderPath + 'js/libs/bra/dbug/bra/bra-module-widget/bra-module-widget.css',
-						brandung.vars.folderPath + 'js/plugin/init-debug-mode.js'
+						Brandung.vars.folderPath + 'js/libs/bra/dbug/bra/bra-module-widget/bra-module-widget.js',
+						Brandung.vars.folderPath + 'js/libs/bra/dbug/bra/bra-module-widget/bra-module-widget.css',
+						Brandung.vars.folderPath + 'js/plugin/init-debug-mode.js'
 					],
-					unique: brandung.util.getUnique()
+					unique: Brandung.util.getUnique()
 				},
 				// delete@>
 				{
 					condition: true,
 					fetch: [
 						// <@bundle#h5bp-helper
-						brandung.vars.folderPath + 'js/libs/vendor/h5bp/helper.js',
-						brandung.vars.folderPath + 'js/plugin/h5bp-helper.js'
+						Brandung.vars.folderPath + 'js/libs/vendor/h5bp/helper.js',
+						Brandung.vars.folderPath + 'js/plugin/h5bp-helper.js'
 						// bundle@>
 					],
-					unique: brandung.util.getUnique()
+					unique: Brandung.util.getUnique()
 				},
 				{
 					// load always and always from server
 					condition: true,
 					fetch: [
-						brandung.vars.folderPath + 'js/hotfix.js',
-						brandung.vars.folderPath + 'css/hotfix.css'
+						Brandung.vars.folderPath + 'js/hotfix.js',
+						Brandung.vars.folderPath + 'css/hotfix.css'
 					],
 					unique: new Date().getTime()
 				}// <@newComponent@>
@@ -146,12 +144,11 @@ basket.require(
 		 #####################################
 		 */
 		$(function () {
-			// init objects
-			brandung.plugin.fetchBeforeRender();
+			Brandung.plugin.fetchBeforeRender();
 		});
 	})(jQuery);
 }, function () {
 	// <@delete
-	console.error('fetching and initialization failed');
+	console.error('main.js: fetching of scripts and initialization failed');
 	// delete@>
 });
