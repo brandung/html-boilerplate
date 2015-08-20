@@ -29,21 +29,30 @@
  */
 @import "vendor/h5bp";
 
-@import "vendor/bootstrap/variables"; // move to partials -> customized
-@import "vendor/bootstrap/mixins/breakpoints";
-@import "vendor/bootstrap/mixins/grid-framework";
-@import "vendor/bootstrap/mixins/grid";
-@import "vendor/bootstrap/mixins";
-@import "vendor/bootstrap/grid";
+/**
+ * old-ie mixin
+ * https://gridsetapp.com/
+ */
+//@import "vendor/_sass-ie_DELETE";
 
 /**
- * layout
+ * vendor utilities
+ * - remove comment when mixin is needed
+ */
+// @import "vendor/retina-sprites";
+// @import "vendor/retina-background-image";
+
+
+/**
+ * layout and grid
+ * - brandung grid
+ * - based on the bootstrap v3 gridset
  *
  * - brandung layout files
  * - here you can add new files if needed
  */
 @import "partials/layout";
-//@import "partials/grid";
+@import "partials/grid";
 @import "partials/sprite-icons";
 @import "partials/typo";
 @import "partials/icon-font";

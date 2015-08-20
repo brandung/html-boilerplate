@@ -40,14 +40,14 @@ $grid-gutter-width-half: $grid-gutter-width / 2;
 
 $breakpoints: (
 	'min-xs': pxToEm($featurephone),
-	'min-sm': pxToEm($smartphone),
-	'min-md': pxToEm($tablet),
-	'min-lg': pxToEm($desktop),
+	'min-s': pxToEm($smartphone),
+	'min-m': pxToEm($tablet),
+	'min-l': pxToEm($desktop),
 	'min-xl': pxToEm($retina),
 	'max-xs': pxToEm($smartphone - 1),
-	'max-sm': pxToEm($tablet - 1),
-	'max-md': pxToEm($desktop - 1),
-	'max-lg': pxToEm($retina - 1)
+	'max-s': pxToEm($tablet - 1),
+	'max-m': pxToEm($desktop - 1),
+	'max-l': pxToEm($retina - 1)
 );
 
 @function point($breakpoint) {

@@ -24,9 +24,9 @@ var Brandung = function (out) {
 		// standard breakpoints
 		breakpoints: {
 			'xs': 320,
-			'sm': 480,
-			'md': 768,
-			'lg': 992,
+			's': 480,
+			'm': 768,
+			'l': 992,
 			'xl': 1280
 		},
 		// mobile first
