@@ -14,7 +14,7 @@
 @import '../partials/mixins';
 
 .alert {
-	border: solid 1px $grey-space;
+	border: solid 1px color('black');
 	border-top-width: 6px;
 	padding: 5px $grid-gutter-width-half;
 	margin-bottom: $grid-gutter-width;
@@ -28,18 +28,18 @@
 	}
 
 	&--info {
-		border-color: $blue;
+		border-color: color('info');
 	}
 
 	&--warning {
-		border-color: $orange;
+		border-color: color('warning');
 	}
 
 	&--error {
-		border-color: $red;
+		border-color: color('error');
 	}
 
 	&--success {
-		border-color: $ci-color;
+		border-color: color('success');
 	}
 }

@@ -76,7 +76,7 @@
 
 		&.error,
 		&.error:focus {
-			border-color: color('error-color');
+			border-color: color('error');
 		}
 	}
 
@@ -185,7 +185,7 @@ input[type="checkbox"] {
 	}
 
 	&.error + label:before {
-		border-color: color('error-color');
+		border-color: color('error');
 	}
 }
 
