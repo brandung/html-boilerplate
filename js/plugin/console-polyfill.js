@@ -7,7 +7,7 @@
  * Date: 19.08.2015s
  * MIT License (MIT)
  */
-Brandung.Util.consolePolyfill = function () {
+Brandung.Plugin.consolePolyfill = function () {
 	if (!(window.console && console.log)) {
 		(function () {
 			var noop = function () {

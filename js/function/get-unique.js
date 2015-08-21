@@ -7,7 +7,7 @@
  * Date: 19.08.2015
  * MIT License (MIT)
  */
-Brandung.Util.getUnique = function (getProdUnique) {
+Brandung.Function.getUnique = function (getProdUnique) {
 	if (!window.location.origin) {
 		window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
 	}
