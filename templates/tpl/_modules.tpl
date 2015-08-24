@@ -17,21 +17,17 @@
 		<main id="main" role="main">
 
 			<h2 class="mod-headline">1. Colors</h2>
-			<div style="overflow-x: auto">
-				{% include "./partials/colors.tpl" %}
-			</div>
+			{% include "./partials/colors.tpl" %}
 
 			<hr/>
 
 			<h2 class="mod-headline">2. Icons</h2>
-			<div style="overflow-x: auto">
-				{% include "./partials/icons.tpl" %}
-			</div>
+			{% include "./partials/icons.tpl" %}
 
 			<hr/>
 
 			<h2 class="mod-headline">3. Breakpoints</h2>
-			<div style="overflow-x: auto">
+			<div class="row" style="overflow-x: auto">
 				{% include "./partials/breakpoints.tpl" %}
 			</div>
 
