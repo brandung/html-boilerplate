@@ -69,7 +69,7 @@
 //
 // Columns, offsets, pushes, and pulls for the large desktop device range.
 @include respondMin(point('min-lg')) {
-	@include makeGrid(la);
+	@include makeGrid(lg);
 }
 
 // Extra Large grid
