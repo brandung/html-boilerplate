@@ -7,7 +7,7 @@
  * Date: 19.08.2015
  * MIT License (MIT)
  */
-Brandung.Plugin.initDebugMode = function () {
+Brandung.Util.initDebugMode = function () {
 	if (Brandung.Vars.isDev) {
 		$('body').bra_moduleWidget();
 

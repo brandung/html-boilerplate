@@ -22,7 +22,7 @@ var Brandung = function (out) {
 		// path to assets folder
 		folderPath: '%%public%%/',
 		// standard breakpoints
-		breakpoints: eval("(" + window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content').replace(/\"/g, '') + ")"),
+		breakpoints: {},
 		// mobile first
 		currentBreakpoint: 'xs',
 		// portrait first
@@ -37,8 +37,8 @@ var Brandung = function (out) {
 	Function: {},
 	// everything that has to do with event handling
 	Handle: {},
-	// Should be used for scripts that have nothing to do with components, e.g. placeholder polyfills, etc
-	Plugin: {}
+	// Should be used for scripts that have nothing to do with components, e.g. placeholder polyfills, plugins, etc.
+	Util: {}
 });
 
 // abortion timeout for asset fetching, default 5000ms
@@ -68,32 +68,34 @@ basket.require(
 			$doc: $(document)
 		});
 
-		Brandung.Plugin.fetchBeforeRender = function () {
+		Brandung.Util.fetchBeforeRender = function () {
 			return $.import([
 				{
 					condition: true,
 					order: 0,
 					fetch: [
 						// <@bundle#before-render
-						Brandung.Vars.folderPath + 'js/plugin/console-polyfill.js',
-						Brandung.Vars.folderPath + 'js/plugin/inject-smartresize.js',
+						Brandung.Vars.folderPath + 'js/util/console-polyfill.js',
+						Brandung.Vars.folderPath + 'js/util/inject-smartresize.js',
 						Brandung.Vars.folderPath + 'js/function/assert-breakpoint.js',
 						Brandung.Vars.folderPath + 'js/function/get-breakpoint.js',
 						Brandung.Vars.folderPath + 'js/function/get-orientation.js',
+						Brandung.Vars.folderPath + 'js/function/get-computed-style.js',
+						Brandung.Vars.folderPath + 'js/util/set-breakpoints.js',
 						Brandung.Vars.folderPath + 'js/handle/set-event-class.js',
 						Brandung.Vars.folderPath + 'js/handle/resize-handler.js',
 						Brandung.Vars.folderPath + 'js/function/get-unique.js'
 						// bundle@>
 					],
 					callback: [
-						{ method: Brandung.Plugin.loadComponents }
+						{ method: Brandung.Util.loadComponents }
 					],
 					unique: 1
 				}
 			], false);
 		};
 
-		Brandung.Plugin.loadComponents = function () {
+		Brandung.Util.loadComponents = function () {
 			$.import([
 				// <@delete
 				{
@@ -101,7 +103,7 @@ basket.require(
 					fetch: [
 						Brandung.Vars.folderPath + 'js/libs/bra/dbug/bra/bra-module-widget/bra-module-widget.js',
 						Brandung.Vars.folderPath + 'js/libs/bra/dbug/bra/bra-module-widget/bra-module-widget.css',
-						Brandung.Vars.folderPath + 'js/plugin/init-debug-mode.js'
+						Brandung.Vars.folderPath + 'js/util/init-debug-mode.js'
 					],
 					unique: Brandung.Function.getUnique()
 				},
@@ -111,7 +113,7 @@ basket.require(
 					fetch: [
 						// <@bundle#h5bp-helper
 						Brandung.Vars.folderPath + 'js/libs/vendor/h5bp/helper.js',
-						Brandung.Vars.folderPath + 'js/plugin/h5bp-helper.js'
+						Brandung.Vars.folderPath + 'js/util/h5bp-helper.js'
 						// bundle@>
 					],
 					unique: Brandung.Function.getUnique()
@@ -145,7 +147,7 @@ basket.require(
 		 #####################################
 		 */
 		$(function () {
-			Brandung.Plugin.fetchBeforeRender();
+			Brandung.Util.fetchBeforeRender();
 		});
 	})(jQuery);
 }, function () {

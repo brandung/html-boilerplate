@@ -7,7 +7,7 @@
  * Date: 19.08.2015
  * MIT License (MIT)
  */
-Brandung.Plugin.h5bpHelper = function () {
+Brandung.Util.h5bpHelper = function () {
 	MBP.scaleFix();
 	MBP.hideUrlBar();
 }();
