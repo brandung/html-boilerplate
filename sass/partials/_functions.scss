@@ -14,7 +14,7 @@
  * This is necessary for the JavaScript function 'function/get-breakpoint.js'
  * and 'function/assert-breakpoint.js'
  */
-@function breakpoint-list() {
+@function getBreakpointList() {
 	$index: ();
 
 	@each $point, $size in $breakpoint-list {

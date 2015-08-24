@@ -27,7 +27,7 @@ body {
 }
 
 body::before {
-	content: breakpoint-list();
+	content: getBreakpointList();
 	display: none;
 }
 
