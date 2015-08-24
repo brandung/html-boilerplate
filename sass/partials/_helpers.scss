@@ -313,14 +313,14 @@
 .util-hidden,
 .util-visible-xs,
 .util-visible-sm,
-.util-visible-m,
-.util-visible-l,
+.util-visible-md,
+.util-visible-lg,
 .util-visible-xl {
 	display: none !important;
 }
 
 $sizes: (
-		'xs', 's', 'm', 'l', 'xl'
+		'xs', 'sm', 'md', 'lg', 'xl'
 );
 @each $size in $sizes {
 	@include respondMin(point('min-' + #{$size})) {

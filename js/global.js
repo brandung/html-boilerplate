@@ -22,13 +22,7 @@ var Brandung = function (out) {
 		// path to assets folder
 		folderPath: '%%public%%/',
 		// standard breakpoints
-		breakpoints: {
-			'xs': 320,
-			'sm': 480,
-			'md': 768,
-			'lg': 992,
-			'xl': 1280
-		},
+		breakpoints: eval("(" + window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content').replace(/\"/g, '') + ")"),
 		// mobile first
 		currentBreakpoint: 'xs',
 		// portrait first

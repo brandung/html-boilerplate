@@ -26,6 +26,11 @@ body {
 	line-height: 1.4;
 }
 
+body::before {
+	content: breakpoint-list();
+	display: none;
+}
+
 main {
 	@extend .container;
 
@@ -57,6 +62,6 @@ img {
 }
 
 hr {
-	@extend .clearfix;
+	@include clearfix();
 	margin: 20px 0;
 }
