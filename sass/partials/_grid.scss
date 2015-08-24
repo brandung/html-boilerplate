@@ -52,7 +52,7 @@
 // to tablets.
 
 @include respondMin(point('min-sm')) {
-	@include makeGrid(s);
+	@include makeGrid(sm);
 }
 
 
@@ -61,7 +61,7 @@
 // Columns, offsets, pushes, and pulls for the desktop device range.
 
 @include respondMin(point('min-md')) {
-	@include makeGrid(m);
+	@include makeGrid(md);
 }
 
 
@@ -69,7 +69,7 @@
 //
 // Columns, offsets, pushes, and pulls for the large desktop device range.
 @include respondMin(point('min-lg')) {
-	@include makeGrid(l);
+	@include makeGrid(la);
 }
 
 // Extra Large grid
