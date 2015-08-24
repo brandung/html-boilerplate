@@ -15,5 +15,8 @@
 Brandung.Function.getComputedStyle = function (element, pseudo, property) {
 	pseudo = pseudo || null;
 
-	return window.getComputedStyle(document.querySelector(element), pseudo).getPropertyValue(property).replace(/\"|'/g, '');
+	return window.getComputedStyle(document.querySelector(element), pseudo)
+		.getPropertyValue(property)
+		.replace(/\\/g, '')
+		.replace(/(^("|')|("|')$)/g, '');
 };

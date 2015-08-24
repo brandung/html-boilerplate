@@ -8,5 +8,5 @@
  * MIT License (MIT)
  */
 Brandung.Util.setBreakpoints = function () {
-	Brandung.Vars.breakpoints = Brandung.Function.getComputedStyle('body', ':before', 'content');
+	Brandung.Vars.breakpoints = JSON.parse(Brandung.Function.getComputedStyle('body', ':before', 'content'));
 }();
