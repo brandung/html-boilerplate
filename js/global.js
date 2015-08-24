@@ -37,14 +37,13 @@ var Brandung = function (out) {
 			!(window.ActiveXObject) && "ActiveXObject" in window || // IE 11
 			/x64|x32/ig.test(window.navigator.userAgent) // IE 12
 	},
-	Util: {},
 	// CSS components script namespace
 	Component: {},
 	// functions must return something
 	Function: {},
 	// everything that has to do with event handling
 	Handle: {},
-	// Should be used for things which have nothing to do with components, e.g. placeholder polyfills, etc
+	// Should be used for scripts that have nothing to do with components, e.g. placeholder polyfills, etc
 	Plugin: {}
 });
 
@@ -82,14 +81,14 @@ basket.require(
 					order: 0,
 					fetch: [
 						// <@bundle#before-render
-						Brandung.Vars.folderPath + 'js/util/console-polyfill.js',
-						Brandung.Vars.folderPath + 'js/util/inject-smartresize.js',
+						Brandung.Vars.folderPath + 'js/plugin/console-polyfill.js',
+						Brandung.Vars.folderPath + 'js/plugin/inject-smartresize.js',
 						Brandung.Vars.folderPath + 'js/function/assert-breakpoint.js',
 						Brandung.Vars.folderPath + 'js/function/get-breakpoint.js',
 						Brandung.Vars.folderPath + 'js/function/get-orientation.js',
 						Brandung.Vars.folderPath + 'js/handle/set-event-class.js',
 						Brandung.Vars.folderPath + 'js/handle/resize-handler.js',
-						Brandung.Vars.folderPath + 'js/util/get-unique.js'
+						Brandung.Vars.folderPath + 'js/function/get-unique.js'
 						// bundle@>
 					],
 					callback: [
@@ -110,7 +109,7 @@ basket.require(
 						Brandung.Vars.folderPath + 'js/libs/bra/dbug/bra/bra-module-widget/bra-module-widget.css',
 						Brandung.Vars.folderPath + 'js/plugin/init-debug-mode.js'
 					],
-					unique: Brandung.Util.getUnique()
+					unique: Brandung.Function.getUnique()
 				},
 				// delete@>
 				{
@@ -121,7 +120,7 @@ basket.require(
 						Brandung.Vars.folderPath + 'js/plugin/h5bp-helper.js'
 						// bundle@>
 					],
-					unique: Brandung.Util.getUnique()
+					unique: Brandung.Function.getUnique()
 				},
 				{
 					// load always and always from server
@@ -137,7 +136,7 @@ basket.require(
 					fetch: [
 						Brandung.Vars.folderPath + 'css/component/alert.css'
 					],
-					unique: Brandung.Util.getUnique()
+					unique: Brandung.Function.getUnique()
 				}// <@newComponent@>
 			], true);
 		};
