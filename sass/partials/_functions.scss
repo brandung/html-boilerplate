@@ -18,7 +18,7 @@
 	$index: ();
 
 	@each $point, $size in $breakpoint-list {
-		$index: append($index, '#{$point} : #{$size}', comma)
+		$index: append($index, '"#{$point}": #{$size}', comma)
 	}
 
 	@return '{ #{$index} }';
