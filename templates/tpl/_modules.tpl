@@ -66,7 +66,7 @@
 		</main>
 
 		{# footer.tpl #}
-		{% include "./partials/component/footer.tpl" %}
+		{% include "../../component/footer/footer.tpl" %}
 
 		{# jsfooter.tpl #}
 		{% include "./partials/jsfooter.tpl" %}
