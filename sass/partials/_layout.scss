@@ -42,19 +42,6 @@ main {
   Content Elements
   ========================================================================== */
 
-noscript {
-	color: color('black');
-	margin: 0.2em 0;
-	background: color('grey-lightest');
-	padding: 0.2em 0;
-	text-align: center;
-
-	p {
-		margin: 0 auto;
-		max-width: $container-max-width;
-	}
-}
-
 img {
 	height: auto;
 	outline: 0;

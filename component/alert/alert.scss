@@ -9,9 +9,9 @@
  * MIT License (MIT)
  */
 
-@import '../partials/functions';
-@import '../partials/variables';
-@import '../partials/mixins';
+@import '../../sass/partials/_functions';
+@import '../../sass/partials/_variables';
+@import '../../sass/partials/_mixins';
 
 .alert {
 	border: solid 1px color('black');

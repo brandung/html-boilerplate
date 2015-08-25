@@ -6,13 +6,13 @@
 	<body>
 
 		{# browsehappy.tpl #}
-		{% include "./partials/component/browsehappy.tpl" %}
+		{% include "../../component/browsehappy/browsehappy.tpl" %}
 
 		{# noscript.tpl #}
-		{% include "./partials/component/noscript.tpl" %}
+		{% include "../../component/noscript/noscript.tpl" %}
 
 		{# header.tpl #}
-		{% include "./partials/component/header.tpl" %}
+		{% include "../../component/header/header.tpl" %}
 
 		<main id="main" role="main">
 
@@ -39,17 +39,19 @@
 
 			<hr/>
 
-			<h2 class="mod-headline">5. Forms</h2>
-			{# forms.tpl #}
-			{% include "./partials/forms.tpl" %}
-
-			<hr/>
-
-			<h2 class="mod-headline">6. Components</h2>
+			<h2 class="mod-headline">5. Components</h2>
 
 			<h3 class="mod-headline">Alert</h3>
 			{# alert.tpl #}
-			{% include "./partials/component/alert.tpl" %}
+			{% include "../../component/alert/alert.tpl" %}
+
+			<h3 class="mod-headline">Buttons</h3>
+			{# buttons.tpl #}
+			{% include "../../component/buttons/buttons.tpl" %}
+
+			<h3 class="mod-headline">Forms</h3>
+			{# forms.tpl #}
+			{% include "../../component/forms/forms.tpl" %}
 
 			<!-- <@newComponent@> -->
 
@@ -58,7 +60,7 @@
 
 			<hr/>
 
-			<h2 class="mod-headline">7. Views</h2>
+			<h2 class="mod-headline">6. Views</h2>
 
 			<!-- <@newView@> -->
 		</main>

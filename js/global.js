@@ -130,7 +130,21 @@ basket.require(
 				{
 					condition: $('.alert'),
 					fetch: [
-						Brandung.Vars.folderPath + 'css/component/alert.css'
+						Brandung.Vars.folderPath + 'component/alert/alert.css'
+					],
+					unique: Brandung.Function.getUnique()
+				},
+				{
+					condition: $('form'),
+					fetch: [
+						Brandung.Vars.folderPath + 'component/forms/forms.css'
+					],
+					unique: Brandung.Function.getUnique()
+				},
+				{
+					condition: $('.btn'),
+					fetch: [
+						Brandung.Vars.folderPath + 'component/buttons/buttons.css'
 					],
 					unique: Brandung.Function.getUnique()
 				}// <@newComponent@>
