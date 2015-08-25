@@ -1,3 +1,4 @@
+@charset "utf-8";
 /**
  * brandung forms.scss v1.0.0
  *
@@ -7,6 +8,10 @@
  * Date: 2014-03-14
  * MIT License (MIT)
  */
+
+@import '../../sass/partials/_functions';
+@import '../../sass/partials/_variables';
+@import '../../sass/partials/_mixins';
 
 /* ==========================================================================
    Form Elements
