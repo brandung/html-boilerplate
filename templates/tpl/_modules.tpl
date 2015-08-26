@@ -57,12 +57,6 @@
 
 			<!-- start|bra-pb: html -->
 			<!-- end|bra-pb: html -->
-
-			<hr/>
-
-			<h2 class="mod-headline">6. Views</h2>
-
-			<!-- <@newView@> -->
 		</main>
 
 		{# footer.tpl #}
