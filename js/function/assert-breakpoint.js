@@ -7,7 +7,7 @@
  * Date: 20.08.2015
  * MIT License (MIT)
  */
-Brandung.Function.assertBreakpoint = function (breakpointIn, operator, breakpoint) {
+Brandung.Function.assertBreakpoint = function (operator, breakpoint) {
 	var breakpoints = Object.keys(Brandung.Vars.breakpoints),
 		curBreakpointIndex = breakpoints.indexOf(Brandung.Vars.currentBreakpoint),
 		conditionalBreakpointIndex = breakpoints.indexOf(breakpoint);
