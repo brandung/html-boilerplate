@@ -124,6 +124,23 @@ $prefixes: ("-webkit-","-moz-", "-o-", "-ms-", "");
 }
 
 /**
+ * Webfont mixin for global use
+ *
+ * @param {string} $family - set the font-family value
+ * @param {string} $fontWeight - set the font-family value
+ * @param {string} $fontStyle - set the font-style value
+ */
+@mixin font($family: $ff-regular, $fontWeight: normal, $fontStyle: normal) {
+	font-family: $family;
+	font-weight: $fontWeight;
+	font-style: $fontStyle;
+
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/**
 * Grid mixins
 *
 * Generate semantic grid columns with these mixins.
