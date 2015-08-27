@@ -59,7 +59,6 @@
 	input[type=date],
 	input[type=search],
 	select,
-	.select,
 	textarea {
 		background: color('white');
 		padding: 12px $grid-gutter-width / 2 10px;
@@ -68,7 +67,8 @@
 		@include prefix(border-radius, 0);
 
 		&:hover,
-		&:focus {
+		&:focus,
+		[readonly] {
 			background: color('grey-lightest');
 			cursor: pointer;
 		}
@@ -99,8 +99,7 @@
 		min-height: 300px;
 	}
 
-	select,
-	.select {
+	select {
 		height: 40px;
 		line-height: 36px;
 		padding: 0 $grid-gutter-width / 2;
@@ -123,8 +122,7 @@
 
 input,
 textarea,
-select,
-.select {
+select {
 	@include prefix(transition, all .2s);
 
 	&:focus {
@@ -134,10 +132,6 @@ select,
 
 label {
 	cursor: pointer;
-}
-
-.label--white {
-	color: white;
 }
 
 // + radios and checkboxes
