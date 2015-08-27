@@ -90,7 +90,7 @@ basket.require(
 					callback: [
 						{ method: Brandung.Util.loadComponents }
 					],
-					unique: 1
+					unique: 123718
 				}
 			], false);
 		};
