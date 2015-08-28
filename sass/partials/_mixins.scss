@@ -141,6 +141,26 @@ $prefixes: ("-webkit-","-moz-", "-o-", "-ms-", "");
 }
 
 /**
+* Mixin for adding hover transition
+*
+* @param {string} $colorFX - properties for color transition
+* @param {string} $hoverColor - hover color
+* @param {string} $backgroundFX - properties for backgrounf transition
+* @param {string} $hoverBackground - hover background color
+*/
+@mixin hoverTransition($colorFX: color 0.2s linear, $hoverColor: false, $backgroundFX: background 0.2s linear, $hoverBackground: false) {
+	@include prefix(transition, ($colorFX, $backgroundFX));
+	&:hover {
+		@if $hoverColor {
+			color: $hoverColor;
+		}
+		@if $hoverBackground {
+			background: $hoverBackground;
+		}
+	}
+}
+
+/**
 * Grid mixins
 *
 * Generate semantic grid columns with these mixins.
