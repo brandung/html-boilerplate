@@ -39,7 +39,13 @@
 
 			<hr/>
 
-			<h2 class="mod-headline">5. Components</h2>
+			<h2 class="mod-headline">5. Typo Elements</h2>
+			{# typo.tpl #}
+			{% include "./partials/typo.tpl" %}
+
+			<hr/>
+
+			<h2 class="mod-headline">6. Components</h2>
 
 			<h3 class="mod-headline">Alert</h3>
 			{# alert.tpl #}

@@ -12,7 +12,7 @@ Brandung.Function.getUnique = function (getProdUnique) {
 		window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
 	}
 
-	Brandung.Vars.isDev = /^(https|http):\/\/(dev\.|(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}))/ig.test(window.location.origin);
+	Brandung.Vars.isDev = /(^http(s)?:\/\/(dev\.|(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})))|(localtunnel\.me)/ig.test(window.location.origin);
 
 	if (Brandung.Vars.isDev && !getProdUnique) {
 		return new Date().getTime();
