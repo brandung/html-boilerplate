@@ -77,7 +77,7 @@
 	<div class="col-sm-12">.col-sm-12</div>
 </div>
 
-<h2 class="mod-headline">Nested Grids</h2>
+<h2 class="mw-headline">Nested Grids</h2>
 <div class="row">
 	<div class="col-sm-3">.col-sm-3</div>
 	<div class="col-sm-9">

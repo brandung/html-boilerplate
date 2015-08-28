@@ -75,6 +75,8 @@
 .mw-headline {
 	text-transform: uppercase !important;
 	font-family: 'Lucida Console', monospace !important;
+	font-style: italic !important;
+	color: cornflowerblue !important;
 }
 
 .mw-container li {

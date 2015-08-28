@@ -1,5 +1,5 @@
 <!-- buttons:start -->
-<h4 class="mod-headline">Small buttons</h4>
+<h4 class="mw-headline">Small buttons</h4>
 
 <button class="btn btn--small">Button small</button>
 
@@ -7,7 +7,7 @@
 
 <a href="#" class="btn btn--small">Link button small</a>
 
-<h4 class="mod-headline">Normal buttons</h4>
+<h4 class="mw-headline">Normal buttons</h4>
 
 <button class="btn">Button</button>
 
@@ -15,7 +15,7 @@
 
 <a href="#" class="btn">Link button</a>
 
-<h4 class="mod-headline">Small buttons disabled</h4>
+<h4 class="mw-headline">Small buttons disabled</h4>
 
 <button class="btn btn--small btn--disabled">Button small disabled</button>
 
@@ -23,7 +23,7 @@
 
 <a href="#" class="btn btn--small btn--disabled">Link button small disabled</a>
 
-<h4 class="mod-headline">Normal buttons disabled</h4>
+<h4 class="mw-headline">Normal buttons disabled</h4>
 
 <button class="btn btn--disabled">Button disabled</button>
 
@@ -31,7 +31,7 @@
 
 <a href="#" class="btn btn--disabled">Link button disabled</a>
 
-<h4 class="mod-headline">Block buttons</h4>
+<h4 class="mw-headline">Block buttons</h4>
 
 <button class="btn btn--small btn--block">Block button small</button>
 
