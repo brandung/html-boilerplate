@@ -62,16 +62,25 @@
 			// DOM of widget
 			settings.widget = $('<div id="' + settings.widgetName + '">' +
 				'<div class="mw-header">' +
-				'	<h3>Modules overview</h3><span class="mw-open">Open</span>' +
+				'	<h3>Modules overview</h3><span class="mw-remove" title="Remove">Remove</span><span class="mw-grid" title="Show grid">Show grid</span><span class="mw-open" title="Show module list">Open</span>' +
 				'</div>' +
 				'<div class="mw-container">' +
 				'</div>' +
 				'</div>');
 
 			// bind click event
-			settings.widget.find('span').on('click', function () {
+			settings.widget.find('.mw-open').on('click', function () {
 				$(this).toggleClass('is-active');
 				methods._showHide(settings);
+			});
+
+			settings.widget.find('.mw-grid').on('click', function () {
+				$(this).toggleClass('is-active');
+				methods._toggleGrid();
+			});
+
+			settings.widget.find('.mw-remove').on('click', function () {
+				settings.widget.remove();
 			});
 
 			// append widget
@@ -83,6 +92,10 @@
 			// bind draggable event
 			methods._draggable.call(settings);
 
+		},
+
+		_toggleGrid: function () {
+			$('body').toggleClass('util-show-grid');
 		},
 
 		/**
