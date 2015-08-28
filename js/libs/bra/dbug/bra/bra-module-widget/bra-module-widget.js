@@ -24,7 +24,7 @@
 				widgetName: 'bra-module-widget',		// String: Selector name of the widget
 				mwHeader: '.mw-header',					// Selector: Widget Header
 				mwContainer: '.mw-container',			// Selector: Widget Container
-				deepLinkObj: '.mod-headline',			// Selector: Selector to navigate
+				deepLinkObj: '.mw-headline',			// Selector: Selector to navigate
 				isStickyHeader: true,					// Boolean: set sticky header value
 				stickyHeader: '.main-nav-wrapper',		// Selector: Sticky Header wrapper
 

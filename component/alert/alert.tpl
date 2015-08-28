@@ -8,21 +8,24 @@
  MIT License (MIT)
  -->
 <div class="alert alert--warning">
-	<p>Was ist hier los?</p>
+	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
 </div>
 
 <div class="alert alert--info">
-	<p>Was ist hier los?</p>
+	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
 	<ul>
-		<li>Das ist falsch</li>
-		<li>Das auch</li>
+		<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+		<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
 	</ul>
 </div>
 
 <div class="alert alert--success">
-	<p>Was ist hier los?</p>
+	<ol>
+		<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+		<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+	</ol>
 </div>
 
 <div class="alert alert--error">
-	<p>Was ist hier los?</p>
+	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
 </div>
