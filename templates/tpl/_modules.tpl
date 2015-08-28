@@ -27,7 +27,7 @@
 			<hr/>
 
 			<h2 class="mw-headline">3. Breakpoints</h2>
-			<div style="overflow-x: auto">
+			<div class="row" style="overflow-x: auto">
 				{% include "./partials/breakpoints.tpl" %}
 			</div>
 
