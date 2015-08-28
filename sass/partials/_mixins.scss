@@ -15,12 +15,12 @@
 
 /**
  * Calculate percent value to given property
- * 
+ *
  * @param {string} $cssProperty - which property
  * @param {number} $targetSize - element size in pixel
  * @param {number} $contextSize - context element size in pixel
  * @param {boolean} $important - set !important property
- * 
+ *
  */
 @mixin calculatePercentValueOfProperty($cssProperty, $targetSize, $contextSize, $important: false) {
 	@if $important == true {
@@ -92,7 +92,7 @@ $prefixes: ("-webkit-","-moz-", "-o-", "-ms-", "");
 * @param {number} $position - background position
 * @param {string} $repeat - background repeat
 *
-* @reauire $old-ie variable from _sass-ie.scss
+* @require $old-ie variable from _sass-ie.scss
 *
 * Use:
 * @include svg-bg('logo')
@@ -109,27 +109,35 @@ $prefixes: ("-webkit-","-moz-", "-o-", "-ms-", "");
 
 /**
 * Clearfix
-*
-* For modern browsers
-* 1. The space content is one way to avoid an Opera bug when the
-*     contenteditable attribute is included anywhere else in the document.
-*     Otherwise it causes space to appear at the top and bottom of elements
-*     that are clearfixed.
-* 2. The use of `table` rather than `block` is only necessary if using
-*     `:before` to contain the top-margins of child elements.
-*
-* Source: http://nicolasgallagher.com/micro-clearfix-hack/
 */
 
 @mixin clearfix() {
-	&:before,
 	&:after {
-		content: " "; // 1
-		display: table; // 2
-	}
-	&:after {
+		display: block;
+		content: ".";
 		clear: both;
+		font-size: 0;
+		line-height: 0;
+		height: 0;
+		overflow: hidden;
 	}
+}
+
+/**
+ * Webfont mixin for global use
+ *
+ * @param {string} $family - set the font-family value
+ * @param {string} $fontWeight - set the font-family value
+ * @param {string} $fontStyle - set the font-style value
+ */
+@mixin font($family: $ff-regular, $fontWeight: normal, $fontStyle: normal) {
+	font-family: $family;
+	font-weight: $fontWeight;
+	font-style: $fontStyle;
+
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 /**
@@ -156,9 +164,9 @@ $prefixes: ("-webkit-","-moz-", "-o-", "-ms-", "");
 }
 
 // [converter] This is defined recursively in LESS, but Sass supports real loops
-@mixin makeGridColumns($i: 1, $list: ".col-xs-#{$i},  .col-s-#{$i}, .col-m-#{$i}, .col-l-#{$i}, .col-xl-#{$i}") {
+@mixin makeGridColumns($i: 1, $list: ".col-xs-#{$i},  .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}, .col-xl-#{$i}") {
 	@for $i from (1 + 1) through $grid-columns {
-		$list: "#{$list}, .col-xs-#{$i}, .col-s-#{$i}, .col-m-#{$i}, .col-l-#{$i}, .col-xl-#{$i}";
+		$list: "#{$list}, .col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}, .col-xl-#{$i}";
 	}
 	#{$list} {
 		position: relative;
@@ -227,4 +235,16 @@ $prefixes: ("-webkit-","-moz-", "-o-", "-ms-", "");
 	@include loopGridColumns($grid-columns, $class, pull);
 	@include loopGridColumns($grid-columns, $class, push);
 	@include loopGridColumns($grid-columns, $class, offset);
+}
+
+@mixin respondMin($width) {
+	@media screen and (min-width: $width) {
+		@content;
+	}
+}
+
+@mixin respondMax($width) {
+	@media screen and (max-width: $width) {
+		@content;
+	}
 }

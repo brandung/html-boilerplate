@@ -20,36 +20,27 @@
 }
 
 body {
-	background: $body-background;
-	color: $text-color;
+	background: color('white');
+	color: color('black');
 	font-size: $body-font-size;
 	line-height: 1.4;
+}
+
+body::before {
+	content: getBreakpointList();
+	display: none;
 }
 
 main {
 	@extend .container;
 
-	&:after {
-		@extend .clearfix;
-	}
+	@include clearfix();
 }
 
 
 /* ==========================================================================
   Content Elements
   ========================================================================== */
-
-noscript {
-	color: $white;
-	margin: 0.2em 0;
-	background: $ci-color;
-	padding: 0.2em 0;
-	text-align: center;
-	p {
-		margin: 0 auto;
-		max-width: $container-max-width;
-	}
-}
 
 img {
 	height: auto;
@@ -58,76 +49,6 @@ img {
 }
 
 hr {
-	@extend .clearfix;
+	@include clearfix();
 	margin: 20px 0;
-}
-
-/* ==========================================================================
-   media queries -
-   for viewport detection only!
-   ========================================================================== */
-
-/* Featurephones and Smartphones (portrait) */
-@include respond-min($breakpoint-min-xs) {
-	body:after {
-		content: 'featurephone';
-		position: absolute;
-		top: -100em;
-		left: -100em;
-		width: 1px;
-		height: 1px;
-		overflow: hidden;
-	}
-}
-
-/* Smartphones (landscape)  */
-@include respond-min($breakpoint-min-s) {
-	body:after {
-		content: 'smartphone';
-		position: absolute;
-		top: -100em;
-		left: -100em;
-		width: 1px;
-		height: 1px;
-		overflow: hidden;
-	}
-}
-
-/* Tablet (portrait) */
-@include respond-min($breakpoint-min-m) {
-	body:after {
-		content: 'tablet';
-		position: absolute;
-		top: -100em;
-		left: -100em;
-		width: 1px;
-		height: 1px;
-		overflow: hidden;
-	}
-}
-
-/* Desktop */
-@include respond-min($breakpoint-min-l) {
-	body:after {
-		content: 'desktop';
-		position: absolute;
-		top: -100em;
-		left: -100em;
-		width: 1px;
-		height: 1px;
-		overflow: hidden;
-	}
-}
-
-/* Full HD and Retina */
-@include respond-min($breakpoint-min-xl) {
-	body:after {
-		content: 'retina';
-		position: absolute;
-		top: -100em;
-		left: -100em;
-		width: 1px;
-		height: 1px;
-		overflow: hidden;
-	}
 }

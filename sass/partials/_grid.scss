@@ -51,8 +51,8 @@
 // Columns, offsets, pushes, and pulls for the small device range, from phones
 // to tablets.
 
-@include respond-min($breakpoint-min-s) {
-	@include makeGrid(s);
+@include respondMin(point('min-sm')) {
+	@include makeGrid(sm);
 }
 
 
@@ -60,22 +60,22 @@
 //
 // Columns, offsets, pushes, and pulls for the desktop device range.
 
-@include respond-min($breakpoint-min-m) {
-	@include makeGrid(m);
+@include respondMin(point('min-md')) {
+	@include makeGrid(md);
 }
 
 
 // Large grid
 //
 // Columns, offsets, pushes, and pulls for the large desktop device range.
-@include respond-min($breakpoint-min-l) {
-	@include makeGrid(l);
+@include respondMin(point('min-lg')) {
+	@include makeGrid(lg);
 }
 
 // Extra Large grid
 //
 // Columns, offsets, pushes, and pulls for the extra-large desktop device range.
 
-@include respond-min($breakpoint-min-xl) {
+@include respondMin(point('min-xl')) {
 	@include makeGrid(xl);
 }
