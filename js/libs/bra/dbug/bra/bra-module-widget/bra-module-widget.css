@@ -72,6 +72,11 @@
 	list-style: none;
 }
 
+.mw-headline {
+	text-transform: uppercase !important;
+	font-family: 'Lucida Console', monospace !important;
+}
+
 .mw-container li {
 	cursor: pointer;
 	margin: 0;
