@@ -6,6 +6,8 @@
  *
  * Date: 19.08.2015
  * MIT License (MIT)
+ *
+ * Resize handler with debounce, should be used for resize handling purposes instead of e.g. $(window).on('resize', ...)
  */
 Brandung.Util.injectSmartResize = function ($, sr) {
 	// debouncing function from John Hann

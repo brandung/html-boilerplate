@@ -6,6 +6,10 @@
  *
  * Date: 19.08.2015
  * MIT License (MIT)
+ *
+ * Returns the current orientation
+ *
+ * @return {string} - portrait or landscape
  */
 Brandung.Function.getOrientation = function () {
 	var windowWidth = window.innerWidth,

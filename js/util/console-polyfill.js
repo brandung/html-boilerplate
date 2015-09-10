@@ -6,6 +6,8 @@
  *
  * Date: 19.08.2015s
  * MIT License (MIT)
+ *
+ * Polyfill for console methods
  */
 Brandung.Util.consolePolyfill = function () {
 	if (!(window.console && console.log)) {

@@ -6,6 +6,9 @@
  *
  * Date: 19.08.2015
  * MIT License (MIT)
+ *
+ * Main resize handler
+ * Sets the currentBreakpoint and currentOrientation variables and sets related classes on the html element; Triggers an event (on document), when the breakpoint has changed
  */
 Brandung.Handle.resizeHandler = function () {
 	var _ = {};

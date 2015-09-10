@@ -7,9 +7,9 @@
  * Date: 24.08.2015
  * MIT License (MIT)
  *
- * @param {String} element - Element selector, e.g. 'body', '.foobar > p'
- * @param {String} pseudo - Pseudoelement, e.g. ':before', ':after'
- * @param {String} property - CSS property, e.g. 'content', 'font-size'
+ * @param {string} element - Element selector, e.g. 'body', '.foobar > p'
+ * @param {string} pseudo - Pseudoelement, e.g. ':before', ':after'
+ * @param {string} property - CSS property, e.g. 'content', 'font-size'
  * @returns {*}
  */
 Brandung.Function.getComputedStyle = function (element, pseudo, property) {

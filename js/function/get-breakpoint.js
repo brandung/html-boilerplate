@@ -6,6 +6,10 @@
  *
  * Date: 19.08.2015
  * MIT License (MIT)
+ *
+ * Gets and returns the current breakpoint based on the window width
+ *
+ * @return {string} - One of the breakpoints: xs, sm, md, lg, xl
  */
 Brandung.Function.getBreakpoint = function () {
 	var windowWidth = window.innerWidth,
