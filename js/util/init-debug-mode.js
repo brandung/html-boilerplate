@@ -6,6 +6,8 @@
  *
  * Date: 19.08.2015
  * MIT License (MIT)
+ *
+ * Initializes the module overview widget for template development
  */
 Brandung.Util.initDebugMode = function () {
 	if (Brandung.Vars.isDev) {

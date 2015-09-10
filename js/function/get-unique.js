@@ -6,6 +6,15 @@
  *
  * Date: 19.08.2015
  * MIT License (MIT)
+ *
+ * Returns a static or dynamic based on the url, e.g.
+ * kemmerling.localtunnel.me -> dynamic key
+ * 192.168.32.20:3000 -> dynamic key
+ * dev.somedomain.de -> dynamic key
+ * www.somelivedomain.de -> static key
+ *
+ * @param {boolean} getProdUnique - If true, the static key will be returned
+ * @return {number}
  */
 Brandung.Function.getUnique = function (getProdUnique) {
 	if (!window.location.origin) {

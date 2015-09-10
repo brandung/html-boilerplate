@@ -23,9 +23,9 @@ var Brandung = function (out) {
 		folderPath: '%%public%%/',
 		// standard breakpoints
 		breakpoints: {},
-		// mobile first
+		// mobile first (xs, sm, md, lg, xl)
 		currentBreakpoint: 'xs',
-		// portrait first
+		// portrait first (portrait, landscape)
 		currentOrientation: 'portrait',
 		isIE: window.navigator.userAgent.indexOf("MSIE ") > -1 || // IE <= 10
 			!(window.ActiveXObject) && "ActiveXObject" in window || // IE 11
@@ -60,7 +60,7 @@ basket.require(
 	}
 ).then(function () {
 	(function ($) {
-		// store commonly used jQuery objects to GlobalVars object
+		// store commonly used jQuery objects to Vars object
 		Brandung.Vars = $.extend(Brandung.Vars, {
 			$html: $('html'),
 			$body: $('body'),
@@ -68,6 +68,7 @@ basket.require(
 			$doc: $(document)
 		});
 
+		//Assets that are necessary globally and on every page, can and will be loaded here
 		Brandung.Util.fetchBeforeRender = function () {
 			return $.import([
 				{
@@ -95,6 +96,7 @@ basket.require(
 			], false);
 		};
 
+		// Component loader
 		Brandung.Util.loadComponents = function () {
 			$.import([
 				// <@delete
