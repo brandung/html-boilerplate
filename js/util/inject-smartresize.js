@@ -39,4 +39,4 @@ Brandung.Util.injectSmartResize = function ($, sr) {
 	$.fn[sr] = function (fn) {
 		return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr);
 	};
-}($, 'smartresize');
+}(jQuery, 'smartresize');
