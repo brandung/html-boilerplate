@@ -9,7 +9,7 @@
  *
  * Initializes the module overview widget for template development
  */
-Brandung.Util.initDebugMode = function () {
+Brandung.Util.initDebugMode = function ($) {
 	if (Brandung.Vars.isDev) {
 		$('body').bra_moduleWidget();
 
@@ -28,4 +28,4 @@ Brandung.Util.initDebugMode = function () {
 			showWidget();
 		});
 	}
-}();
+}(jQuery);
